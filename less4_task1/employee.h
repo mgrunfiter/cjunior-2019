@@ -25,10 +25,10 @@ public:
     void printInfo() const;
 
     // Категория
-    unsigned Get_category() const;
+    unsigned getCategory() const;
 
     // Пол в человеческом виде ))
-    std::string Get_sex() const;
+    std::string getSex() const;
 private:
     std::string first_name;
     std::string last_name;

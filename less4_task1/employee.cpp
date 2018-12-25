@@ -27,12 +27,12 @@ void Employee::demote()
         category = 0;
 }
 
-unsigned Employee::Get_category() const
+unsigned Employee::getCategory() const
 {
     return category;
 }
 
-std::string Employee::Get_sex() const
+std::string Employee::getSex() const
 {
     if (sex == Gender::MALE)
         return "Мужской";
@@ -43,8 +43,8 @@ void Employee::printInfo() const
 {
     std::cout << "      Имя: " << first_name << std::endl;
     std::cout << "  Фамилия: " << last_name << std::endl;
-    std::cout << "      Пол: " << Get_sex() << std::endl;
+    std::cout << "      Пол: " << getSex() << std::endl;
     std::cout << "  Возраст: " << age << std::endl;
-    std::cout << "Категория: " << Get_category() << std::endl;
+    std::cout << "Категория: " << getCategory() << std::endl;
     std::cout << "======================" << std::endl;
 }
