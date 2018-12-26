@@ -15,8 +15,8 @@ public:
 
   void ChangeFirstName(int year, const std::string& first_name);
   void ChangeLastName(int year, const std::string& last_name);
-  std::string GetFullName(int year);
-  std::string GetFullNameWithHistory(int year);
+  std::string GetFullName(int year)  const;
+  std::string GetFullNameWithHistory(int year) const;
 
 private:
   //ФИО в год рождения
@@ -26,13 +26,13 @@ private:
 
 protected:
   //было ли изменение имени в этом году?
-  bool FirstNameChanged(int year);
+  bool FirstNameChanged(int year) const;
   //было ли изменение фамилии в этом году?
-  bool LastNameChanged(int year);
+  bool LastNameChanged(int year) const;
   // в этом году вообще что-то менялось?
   // Возвращает число >= 0 - индекс в векторе vNames если да
   // и -1 если нет.
-  int YearFound(int year);
+  int YearFound(int year) const;
   // сортировка вектора
   void SortNames();
 };

@@ -20,7 +20,7 @@ void Person::SortNames()
     } while (flag);
 }
 
-int Person::YearFound(int year)
+int Person::YearFound(int year) const
 {
     int index = -1;
 
@@ -32,7 +32,7 @@ int Person::YearFound(int year)
     return index;
 }
 
-bool Person::FirstNameChanged(int year)
+bool Person::FirstNameChanged(int year) const
 {
     bool flag = false;
     int index = 0;
@@ -44,7 +44,7 @@ bool Person::FirstNameChanged(int year)
     return flag;
 }
 
-bool Person::LastNameChanged(int year)
+bool Person::LastNameChanged(int year) const
 {
     bool flag = false;
     int index = 0;
@@ -115,7 +115,8 @@ void Person::ChangeLastName(int year, const std::string& last_name) {
 }
 
 // получить имя и фамилию по состоянию на конец года year
-std::string Person::GetFullName(int year) {
+std::string Person::GetFullName(int year)  const
+{
 
     std::string result = "Incognito";
     std::string f_name = "with unknown first name";
@@ -142,6 +143,7 @@ std::string Person::GetFullName(int year) {
 
 // TODO: продолжать здесь
 // история изменения имени и фамилии с рождения до конца года year
-std::string Person::GetFullNameWithHistory(int year) {
+std::string Person::GetFullNameWithHistory(int year)  const
+{
   return Names.first_name + " " + Names.last_name;
 }
