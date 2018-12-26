@@ -17,9 +17,11 @@ public:
 private:
   // приватные поля
 };
-```
-
-Считайте, что в каждый год может произойти не более одного изменения фамилии и не более одного изменения имени. При этом с течением времени могут открываться всё новые факты из прошлого человека, поэтому года́ в последовательных вызовах методов *ChangeLastName* и *ChangeFirstName* не обязаны возрастать.
+*/
+/*
+Считайте, что в каждый год может произойти не более одного изменения фамилии и не более одного изменения имени.
+При этом с течением времени могут открываться всё новые факты из прошлого человека,
+поэтому года́ в последовательных вызовах методов *ChangeLastName* и *ChangeFirstName* не обязаны возрастать.
 
 Гарантируется, что все имена и фамилии непусты.
 
@@ -50,10 +52,9 @@ private:
 
   return 0;
 }
-```
 
 **Вывод:**
-```cpp
+
 Incognito
 Polina with unknown last name
 Polina Sergeeva
@@ -61,9 +62,9 @@ Polina Sergeeva
 Appolinaria Sergeeva
 Polina Volkova
 Appolinaria Volkova
-```
+*/
 
-
+/*
 Дополните класс Person конструктором, позволяющим задать имя и фамилию человека при рождении, а также сам год рождения. Класс не должен иметь конструктора по умолчанию.
 
 При получении на вход года, который меньше года рождения:
@@ -102,15 +103,34 @@ Appolinaria (Polina) Ivanova (Sergeeva)
 
 int main()
 {
-    Person person("Polina", "Sergeeva", 1960);
-    for (int year : {1959, 1960}) {
-        std::cout << person.GetFullNameWithHistory(year) << std::endl;
+    Person person("", "", 1960);
+    person.ChangeFirstName(1965, "Polina");
+    person.ChangeLastName(1967, "Sergeeva");
+    for (int year : {1900, 1965, 1990}) {
+      std::cout << person.GetFullName(year) << std::endl;
     }
 
-    person.ChangeFirstName(1965, "Appolinaria");
-    person.ChangeLastName(1967, "Ivanova");
+    person.ChangeFirstName(1970, "Appolinaria");
+    for (int year : {1969, 1970}) {
+      std::cout << person.GetFullName(year) << std::endl;
+    }
+
+    person.ChangeLastName(1968, "Volkova");
+    for (int year : {1969, 1970}) {
+      std::cout << person.GetFullName(year) << std::endl;
+    }
+
+    std::cout << "===============================" << std::endl;
+// пока не готово
+    Person person1("Polina", "Sergeeva", 1960);
+    for (int year : {1959, 1960}) {
+        std::cout << person1.GetFullNameWithHistory(year) << std::endl;
+    }
+
+    person1.ChangeFirstName(1965, "Appolinaria");
+    person1.ChangeLastName(1967, "Ivanova");
     for (int year : {1965, 1967}) {
-        std::cout << person.GetFullNameWithHistory(year) << std::endl;
+        std::cout << person1.GetFullNameWithHistory(year) << std::endl;
     }
 
     return 0;

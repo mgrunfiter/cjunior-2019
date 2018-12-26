@@ -1,25 +1,126 @@
 #include "person.h"
 
-Person::Person(std::string f_name, std::string l_name, int b_year)
+
+int Person::YearFound(int year)
 {
-    first_name.push_back(f_name);
-    last_name.push_back(l_name);
-    year.push_back(b_year);
+    int index = -1;
+
+    for (int i = 0; i < vNames.size(); i++) {
+        if (vNames[i].year == year)
+            index = i;
+            break;
+        }
+    return index;
 }
 
+bool Person::FirstNameChanged(int year)
+{
+    bool flag = false;
+    int index = 0;
+
+    index = YearFound(year);
+    if ((index >= 0) && (vNames.at(index).first_name != "")) {
+        flag = true;
+    }
+    return flag;
+}
+
+bool Person::LastNameChanged(int year)
+{
+    bool flag = false;
+    int index = 0;
+
+    index = YearFound(year);
+    if ((index >= 0) && (vNames.at(index).last_name != "")) {
+        flag = true;
+    }
+    return flag;
+}
+
+Person::Person(const std::string f_name, const std::string l_name, const int b_year)
+   // не получилось здесь проинициализировать ((
+    //Names.first_name(f_name),
+   // Names.last_name(l_name),
+   // Names.year(b_year)
+{
+    Names.first_name = f_name;
+    Names.last_name = l_name;
+    Names.year = b_year;
+    vNames.push_back(Names);
+}
+
+// добавить факт изменения имени на first_name в год year
 void Person::ChangeFirstName(int year, const std::string& first_name) {
-  // добавить факт изменения имени на first_name в год year
+    sNames tNames;
+    int index = 0;
+
+    index = YearFound(year);
+    if (index >= 0) {
+        if (not FirstNameChanged(year)) {
+            vNames.at(index).first_name = first_name;
+        }
+        else {
+            return;
+        }
+    }
+    else {
+        tNames.first_name = first_name;
+        tNames.last_name = "";
+        tNames.year = year;
+        vNames.push_back(tNames);
+    }
 }
 
+// добавить факт изменения фамилии на last_name в год year
 void Person::ChangeLastName(int year, const std::string& last_name) {
-  // добавить факт изменения фамилии на last_name в год year
+    sNames tNames;
+    int index = 0;
+
+    index = YearFound(year);
+    if (index >= 0) {
+        if (not LastNameChanged(year)) {
+            vNames.at(index).first_name = last_name;
+        }
+        else {
+            return;
+        }
+    }
+    else {
+        tNames.first_name = "";
+        tNames.last_name = last_name;
+        tNames.year = year;
+        vNames.push_back(tNames);
+    }
 }
 
+// получить имя и фамилию по состоянию на конец года year
 std::string Person::GetFullName(int year) {
-  // получить имя и фамилию по состоянию на конец года year
+
+    std::string result = "Incognito";
+    std::string f_name = "with unknown first name";
+    std::string l_name = "with unknown last name";
+
+   // для второй части задания раскомментировать
+   // if (Names.year > year) {
+   //   return "No person";
+   // }
+    for (int i = 0; i < vNames.size(); i++) {
+        if (vNames.at(i).year > year) {
+            break;
+        }
+        if (vNames.at(i).year <= year) {
+            if (vNames.at(i).first_name != "")
+                f_name = vNames.at(i).first_name;
+            if (vNames.at(i).last_name != "")
+                l_name = vNames.at(i).last_name;
+            result = f_name + " " + l_name;
+        }
+    }
+    return result;
 }
 
+// TODO: продолжать здесь
+// история изменения имени и фамилии с рождения до конца года year
 std::string Person::GetFullNameWithHistory(int year) {
-  //  история изменения имени и фамилии с рождения до конца года year
-    return first_name[0];
+  return Names.first_name + " " + Names.last_name;
 }
