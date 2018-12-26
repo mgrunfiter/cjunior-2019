@@ -1,5 +1,24 @@
 #include "person.h"
 
+void Person::SortNames()
+{
+    int i = 0, j, flag;
+    sNames tNames;
+
+    i = 0;
+    do {
+        flag = 0;
+        for (int j = vNames.size() - 2; j >= i; j--) {
+             if (vNames[j].year > vNames[j + 1].year) {
+                 tNames = vNames[j];
+                 vNames[j] = vNames[j + 1];
+                 vNames[j + 1] = tNames;
+                 flag = 1;
+             }
+       }
+       i++;
+    } while (flag);
+}
 
 int Person::YearFound(int year)
 {
@@ -69,6 +88,7 @@ void Person::ChangeFirstName(int year, const std::string& first_name) {
         tNames.year = year;
         vNames.push_back(tNames);
     }
+    SortNames();
 }
 
 // добавить факт изменения фамилии на last_name в год year
@@ -91,6 +111,7 @@ void Person::ChangeLastName(int year, const std::string& last_name) {
         tNames.year = year;
         vNames.push_back(tNames);
     }
+    SortNames();
 }
 
 // получить имя и фамилию по состоянию на конец года year

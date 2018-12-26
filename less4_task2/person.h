@@ -33,6 +33,8 @@ protected:
   // Возвращает число >= 0 - индекс в векторе vNames если да
   // и -1 если нет.
   int YearFound(int year);
+  // сортировка вектора
+  void SortNames();
 };
 
 #endif // PERSON_H
