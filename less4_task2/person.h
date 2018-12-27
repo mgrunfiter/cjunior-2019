@@ -4,6 +4,7 @@
 #include <vector>
 
 struct sNames {
+   //sNames(const std::string&, const std::string&, const int&);
    std::string first_name;
    std::string last_name;
    int year;

@@ -98,39 +98,46 @@ Appolinaria (Polina) Ivanova (Sergeeva)
 ```
 */
 #include <iostream>
+#include <memory>
 #include "person.h"
 
 
 int main()
 {
-    Person person("", "", 1960);
-    person.ChangeFirstName(1965, "Polina");
-    person.ChangeLastName(1967, "Sergeeva");
-    for (int year : {1900, 1965, 1990}) {
-      std::cout << person.GetFullName(year) << std::endl;
-    }
+    {
+        //Person person("", "", 1960);
+        // на такой вариант ругается: main.cpp:110: ошибка: no member named 'make_unique' in namespace 'std'
+        // Eсли без std:: то вот так: main.cpp:110: ошибка: use of undeclared identifier 'make_unique'
+        //std::unique_ptr<Person> person = std::make_unique<Person>();
+        std::unique_ptr<Person> person(new Person("", "", 1960));
+        person->ChangeFirstName(1965, "Polina");
+        person->ChangeLastName(1967, "Sergeeva");
+        for (int year : {1900, 1961, 1965, 1990}) {
+          std::cout << person->GetFullName(year) << std::endl;
+        }
 
-    person.ChangeFirstName(1970, "Appolinaria");
-    for (int year : {1969, 1970}) {
-      std::cout << person.GetFullName(year) << std::endl;
-    }
+        person->ChangeFirstName(1970, "Appolinaria");
+        for (int year : {1969, 1970}) {
+          std::cout << person->GetFullName(year) << std::endl;
+        }
 
-    person.ChangeLastName(1968, "Volkova");
-    for (int year : {1969, 1970}) {
-      std::cout << person.GetFullName(year) << std::endl;
+        person->ChangeLastName(1968, "Volkova");
+        for (int year : {1969, 1970}) {
+          std::cout << person->GetFullName(year) << std::endl;
+        }
     }
 
     std::cout << "===============================" << std::endl;
-// пока не готово
-    Person person1("Polina", "Sergeeva", 1960);
+
+    std::unique_ptr<Person> person(new Person("Polina", "Sergeeva", 1960));
     for (int year : {1959, 1960}) {
-        std::cout << person1.GetFullNameWithHistory(year) << std::endl;
+        std::cout << person->GetFullNameWithHistory(year) << std::endl;
     }
 
-    person1.ChangeFirstName(1965, "Appolinaria");
-    person1.ChangeLastName(1967, "Ivanova");
+    person->ChangeFirstName(1965, "Appolinaria");
+    person->ChangeLastName(1967, "Ivanova");
     for (int year : {1965, 1967}) {
-        std::cout << person1.GetFullNameWithHistory(year) << std::endl;
+        std::cout << person->GetFullNameWithHistory(year) << std::endl;
     }
 
     return 0;

@@ -1,8 +1,9 @@
 #include "person.h"
+//#include <algorithm>
 
 void Person::SortNames()
 {
-    int i = 0, j, flag;
+    int i = 0, flag;
     sNames tNames;
 
     i = 0;
@@ -23,8 +24,9 @@ void Person::SortNames()
 int Person::YearFound(int year) const
 {
     int index = -1;
-
-    for (int i = 0; i < vNames.size(); i++) {
+//    int size = static_cast<int>(vNames.size());
+//    for (int i = 0; i < size; i++) {
+    for (unsigned i = 0; i < vNames.size(); i++) {
         if (vNames[i].year == year)
             index = i;
             break;
@@ -56,9 +58,10 @@ bool Person::LastNameChanged(int year) const
     return flag;
 }
 
+// конструктор
 Person::Person(const std::string f_name, const std::string l_name, const int b_year)
-   // не получилось здесь проинициализировать ((
-    //Names.first_name(f_name),
+// не получилось здесь проинициализировать ((
+   // Names.first_name(f_name),
    // Names.last_name(l_name),
    // Names.year(b_year)
 {
@@ -122,10 +125,9 @@ std::string Person::GetFullName(int year)  const
     std::string f_name = "with unknown first name";
     std::string l_name = "with unknown last name";
 
-   // для второй части задания раскомментировать
-   // if (Names.year > year) {
-   //   return "No person";
-   // }
+    if (Names.year > year) {
+      return "No person";
+    }
     for (int i = 0; i < vNames.size(); i++) {
         if (vNames.at(i).year > year) {
             break;
@@ -138,6 +140,8 @@ std::string Person::GetFullName(int year)  const
             result = f_name + " " + l_name;
         }
     }
+    if ((f_name == "with unknown first name") && (l_name == "with unknown last name"))
+        result = "Incognito";
     return result;
 }
 
@@ -145,5 +149,26 @@ std::string Person::GetFullName(int year)  const
 // история изменения имени и фамилии с рождения до конца года year
 std::string Person::GetFullNameWithHistory(int year)  const
 {
-  return Names.first_name + " " + Names.last_name;
+    std::string result = "Incognito";
+    std::string f_name = Names.first_name;
+    std::string l_name = Names.last_name;
+
+    if (Names.year > year) {
+      return "No person";
+    }
+    for (int i = 0; i < vNames.size(); i++) {
+        if (vNames.at(i).year > year) {
+            break;
+        }
+        if (vNames.at(i).year <= year) {
+            if (vNames.at(i).first_name != "")
+                if (f_name != vNames.at(i).first_name)
+                    f_name = vNames.at(i).first_name + " (" + f_name + ")";
+            if (vNames.at(i).last_name != "")
+                if (l_name != vNames.at(i).last_name)
+                    l_name = vNames.at(i).last_name + " (" + l_name + ")";
+            result = f_name + " " + l_name;
+        }
+    }
+    return result;
 }
