@@ -106,10 +106,10 @@ int main()
 {
     {
         //Person person("", "", 1960);
-        // на такой вариант ругается: main.cpp:110: ошибка: no member named 'make_unique' in namespace 'std'
-        // Eсли без std:: то вот так: main.cpp:110: ошибка: use of undeclared identifier 'make_unique'
-        //std::unique_ptr<Person> person = std::make_unique<Person>();
-        std::unique_ptr<Person> person(new Person("", "", 1960));
+        // Так работает только с 14-го стандарта
+        std::unique_ptr<Person> person = std::make_unique<Person>("", "", 1960);
+        // А так с 11-го
+        //std::unique_ptr<Person> person(new Person("", "", 1960));
         person->ChangeFirstName(1965, "Polina");
         person->ChangeLastName(1967, "Sergeeva");
         for (int year : {1900, 1961, 1965, 1990}) {
@@ -129,7 +129,8 @@ int main()
 
     std::cout << "===============================" << std::endl;
 
-    std::unique_ptr<Person> person(new Person("Polina", "Sergeeva", 1960));
+    std::unique_ptr<Person> person = std::make_unique<Person>("Polina", "Sergeeva", 1960);
+    //std::unique_ptr<Person> person(new Person("Polina", "Sergeeva", 1960));
     for (int year : {1959, 1960}) {
         std::cout << person->GetFullNameWithHistory(year) << std::endl;
     }

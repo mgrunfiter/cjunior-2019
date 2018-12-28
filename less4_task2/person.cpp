@@ -1,6 +1,8 @@
 #include "person.h"
 //#include <algorithm>
 
+// Не нашел способа сортировать вектор со сруктурами
+// по одному из полей структуры, потому вручную...
 void Person::SortNames()
 {
     int i = 0, flag;
@@ -60,7 +62,7 @@ bool Person::LastNameChanged(int year) const
 
 // конструктор
 Person::Person(const std::string f_name, const std::string l_name, const int b_year)
-// не получилось здесь проинициализировать ((
+// не получилось здесь проинициализировать, наверное что-то делаю не так ((
    // Names.first_name(f_name),
    // Names.last_name(l_name),
    // Names.year(b_year)
@@ -145,7 +147,6 @@ std::string Person::GetFullName(int year)  const
     return result;
 }
 
-// TODO: продолжать здесь
 // история изменения имени и фамилии с рождения до конца года year
 std::string Person::GetFullNameWithHistory(int year)  const
 {
