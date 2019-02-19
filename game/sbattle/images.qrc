@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/res">
+        <file>sb_fon.png</file>
+    </qresource>
+</RCC>

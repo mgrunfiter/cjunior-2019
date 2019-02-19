@@ -27,13 +27,14 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp \
-    battleserver.cpp
+        mainwindow.cpp
 
 HEADERS += \
-        mainwindow.h \
-    battleserver.h
+        mainwindow.h
 
 FORMS += \
         mainwindow.ui
+
+RESOURCES += \
+    images.qrc
 
