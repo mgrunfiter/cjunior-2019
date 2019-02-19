@@ -4,6 +4,7 @@
 bool MainWindow::MessBox(QString message)
 {
     QMessageBox msgBox;
+    msgBox.setWindowTitle(version);
     msgBox.setText(message);
     msgBox.setIcon(QMessageBox::Question);
     msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
@@ -24,9 +25,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setWindowTitle(version);
 
-    //ui->lbBackground->setStyleSheet(":res/sb_fon.png");
-    QImage back_img(":res/sb_fon.png");
+    QImage back_img("://img/background.png");
+
     ui->lbBackground->setPixmap(QPixmap::fromImage(back_img));
     ui->lbBackground->setScaledContents(true);
 
@@ -62,31 +64,32 @@ void MainWindow::paintEvent(QPaintEvent *event)
 void MainWindow::mousePressEvent(QMouseEvent *ev)
 {
     QPoint pos = ev->pos();
-    int f1_left = 39;
-    int f_top = 63;
 
-    int f2_left = 406;
+    int f1_left = 44;
+    int f_top = 70;
 
-    int fild_x = 280;
+    int f2_left = 333;
+
+    int fild_x = 225;
     int fild_y = 225;
 
-//    qDebug() << "!!!! x =" << pos.x() << "y =" << pos.y();
+    // длина и высота одной ячейки
+    int cell_len = 23;
+
+    qDebug() << "!!!! x =" << pos.x() << "y =" << pos.y();
 
     if (state == ST_PLACING_SHIPS)
     {
-        if (((pos.x() > f1_left) && (pos.x() < f1_left + fild_x)) &&
-            ((pos.y() > f_top) && (pos.y() < f_top + fild_y)))
+        if (((pos.x() >= f1_left) && (pos.x() <= f1_left + fild_x)) &&
+            ((pos.y() >= f_top) && (pos.y() <= f_top + fild_y)))
         {
-            qDebug() << "x =" << pos.x() << "y =" << pos.y();
-            qDebug() << "Корабли расставлены!";
-            state = ST_MAKING_STEP;
-            ui->lbState->setText("Ваш ход");
+            qDebug() << "Корабль здесь: x =" << pos.x() << "y =" << pos.y();
          }
     }
     else if (state == ST_MAKING_STEP)
          {
-             if (((pos.x() > f2_left) && (pos.x() < f2_left + fild_x)) &&
-                 ((pos.y() > f_top) && (pos.y() < f_top + fild_y)))
+             if (((pos.x() >= f2_left) && (pos.x() <= f2_left + fild_x)) &&
+                 ((pos.y() >= f_top) && (pos.y() <= f_top + fild_y)))
              {
                  qDebug() << "Выстрел:  x =" << pos.x() << "y =" << pos.y();
                  state = ST_WAITING_STEP;
@@ -95,12 +98,18 @@ void MainWindow::mousePressEvent(QMouseEvent *ev)
          }
          else if (state == ST_WAITING_STEP)
               {
-                  if (((pos.x() > f1_left) && (pos.x() < f1_left + fild_x)) &&
-                      ((pos.y() > f_top) && (pos.y() < f_top + fild_y)))
+                  if (((pos.x() >= f1_left) && (pos.x() <= f1_left + fild_x)) &&
+                      ((pos.y() >= f_top) && (pos.y() <= f_top + fild_y)))
                   {
                       qDebug() << "В нас стреляли:  x =" << pos.x() << "y =" << pos.y();
                       state = ST_MAKING_STEP;
                       ui->lbState->setText("Ваш ход");
                   }
               }
+}
+
+void MainWindow::on_actionReady_triggered()
+{
+    state = ST_MAKING_STEP;
+    ui->lbState->setText("Ваш ход");
 }

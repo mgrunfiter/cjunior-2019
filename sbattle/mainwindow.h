@@ -34,6 +34,8 @@ public:
 private slots:
     void on_actionExit_triggered();
 
+    void on_actionReady_triggered();
+
 protected:
     void paintEvent(QPaintEvent *event);
     void mousePressEvent(QMouseEvent *ev);
@@ -43,6 +45,7 @@ private:
     bool MessBox(QString message);
     void closeEvent(QCloseEvent *event);
     StateGame state;
+    QString version = "Sea Battle v0.1";
     bool gameover;
 };
 

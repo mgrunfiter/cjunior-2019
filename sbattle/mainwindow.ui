@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>710</width>
+    <width>610</width>
     <height>380</height>
    </rect>
   </property>
@@ -21,13 +21,13 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>710</width>
+    <width>610</width>
     <height>380</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>710</width>
+    <width>610</width>
     <height>380</height>
    </size>
   </property>
@@ -38,11 +38,18 @@
    <widget class="QLabel" name="lbState">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>290</y>
+      <x>210</x>
+      <y>300</y>
       <width>251</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>TextLabel</string>
@@ -51,14 +58,27 @@
    <widget class="QLabel" name="lbBackground">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>0</x>
       <y>0</y>
-      <width>691</width>
-      <height>261</height>
+      <width>601</width>
+      <height>281</height>
      </rect>
     </property>
     <property name="text">
      <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>280</y>
+      <width>601</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
     </property>
    </widget>
   </widget>
@@ -67,13 +87,13 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>710</width>
-     <height>20</height>
+     <width>610</width>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuGame">
     <property name="title">
-     <string>Game</string>
+     <string>Игра</string>
     </property>
     <addaction name="actionAutoranging"/>
     <addaction name="separator"/>
@@ -83,7 +103,7 @@
    </widget>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
-     <string>About</string>
+     <string>О программе</string>
     </property>
     <addaction name="actionAbout"/>
    </widget>
@@ -101,7 +121,7 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionAutoranging">
    <property name="text">
-    <string>Autoranging</string>
+    <string>Авторасстановка</string>
    </property>
    <property name="toolTip">
     <string>Авторасстановка кораблей</string>
@@ -109,7 +129,7 @@
   </action>
   <action name="actionReady">
    <property name="text">
-    <string>Ready</string>
+    <string>Начали</string>
    </property>
    <property name="toolTip">
     <string>Начинаем игру</string>
@@ -117,7 +137,7 @@
   </action>
   <action name="actionExit">
    <property name="text">
-    <string>Exit</string>
+    <string>Выход</string>
    </property>
    <property name="toolTip">
     <string>Выход из игры</string>
@@ -125,7 +145,7 @@
   </action>
   <action name="actionAbout">
    <property name="text">
-    <string>About</string>
+    <string>О программе</string>
    </property>
   </action>
  </widget>
