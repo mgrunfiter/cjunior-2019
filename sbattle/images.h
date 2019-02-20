@@ -1,5 +1,5 @@
-//#ifndef IMAGES_H
-//#define IMAGES_H
+#ifndef IMAGES_H
+#define IMAGES_H
 
 #pragma once
 #include <QMap>
@@ -11,14 +11,14 @@ class Images
 public:
     Images();
     void load();
-    QImage& get( const QString& imgName );
+    QImage &get(const QString &imgName);
     bool isLoaded();
 
 private:
     QMap<QString, QImage> images;
-    bool isLoaded_;
+    bool _isLoaded;
 };
 
 extern Images pictures;
 
-//#endif // IMAGES_H
+#endif // IMAGES_H

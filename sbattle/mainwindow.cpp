@@ -31,6 +31,11 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setFixedSize(600, 390);
     this->setWindowTitle(version);
 
+//    BattleField MyField = new BattleField(FIELD1_X, FIELD1_Y);
+//    BattleField EnemyField = new BattleField(FIELD2_X, FIELD2_Y);
+
+    BattleField MyField(FIELD1_X, FIELD1_Y);
+    BattleField EnemyField(FIELD2_X, FIELD2_Y);
 
     gameover = false;
     state = ST_PLACING_SHIPS;
@@ -69,42 +74,35 @@ void MainWindow::paintEvent(QPaintEvent *event)
         );
 }
 
+int MainWindow::ShutInFild(int x, int y)
+{
+    if (((x >= FIELD1_X) && (x <= FIELD1_X + FIELD_WIDTH)) &&
+        ((y >= FIELD1_Y) && (y <= FIELD1_Y + FIELD_HEIGHT)))
+        return 1;
+    if (((x >= FIELD2_X) && (x <= FIELD2_X + FIELD_WIDTH)) &&
+        ((y >= FIELD2_Y) && (y <= FIELD2_Y + FIELD_HEIGHT)))
+        return 2;
+}
+
 void MainWindow::mousePressEvent(QMouseEvent *ev)
 {
     QPoint pos = ev->pos();
 
-//    int f1_left = 44;
-//    int f_top = 56;
-
-//    int f2_left = 333;
-
-//    int fild_x = 225;
-//    int fild_y = 225;
-
-//    const int FIELD1_X = 44;
-//    const int FIELD1_Y = 56;
-//    const int FIELD2_X = 44;
-//    const int FIELD2_Y = 333;
-//    const int FIELD_WIDTH = 225;
-//    const int FIELD_HEIGHT = 225;
-
     // длина и высота одной ячейки
-    int cell_len = 23;
+    //int cell_len = 23;
 
     qDebug() << "!!!! x =" << pos.x() << "y =" << pos.y();
 
     if (state == ST_PLACING_SHIPS)
     {
-        if (((pos.x() >= FIELD1_X) && (pos.x() <= FIELD1_X + FIELD_WIDTH)) &&
-            ((pos.y() >= FIELD1_Y) && (pos.y() <= FIELD1_Y + FIELD_HEIGHT)))
+        if (ShutInFild(pos.x(), pos.y()) == 1)
         {
             qDebug() << "Корабль здесь: x =" << pos.x() << "y =" << pos.y();
          }
     }
     else if (state == ST_MAKING_STEP)
          {
-             if (((pos.x() >= FIELD2_X) && (pos.x() <= FIELD2_X + FIELD_WIDTH)) &&
-                 ((pos.y() >= FIELD2_Y) && (pos.y() <= FIELD2_Y + FIELD_HEIGHT)))
+             if (ShutInFild(pos.x(), pos.y()) == 2)
              {
                  qDebug() << "Выстрел:  x =" << pos.x() << "y =" << pos.y();
                  state = ST_WAITING_STEP;
@@ -113,8 +111,7 @@ void MainWindow::mousePressEvent(QMouseEvent *ev)
          }
          else if (state == ST_WAITING_STEP)
               {
-                  if (((pos.x() >= FIELD1_X) && (pos.x() <= FIELD1_X + FIELD_WIDTH)) &&
-                      ((pos.y() >= FIELD1_Y) && (pos.y() <= FIELD1_Y + FIELD_HEIGHT)))
+                  if (ShutInFild(pos.x(), pos.y()) == 1)
                   {
                       qDebug() << "В нас стреляли:  x =" << pos.x() << "y =" << pos.y();
                       state = ST_MAKING_STEP;

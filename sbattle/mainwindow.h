@@ -12,6 +12,8 @@
 #include <QCloseEvent>
 #include "images.h"
 #include "defines.h"
+#include "cell.h"
+#include "battlefield.h"
 
 namespace Ui {
 class MainWindow;
@@ -35,25 +37,22 @@ public:
 
 private slots:
     void on_actionExit_triggered();
-
     void on_actionReady_triggered();
-
     void on_pbGame_clicked();
-
     void on_pbAuto_clicked();
-
     void on_actionAutoranging_triggered();
 
 protected:
     void paintEvent(QPaintEvent *event);
     void mousePressEvent(QMouseEvent *ev);
+    void closeEvent(QCloseEvent *event);
 
 private:
     Ui::MainWindow *ui;
     bool MessBox(QString message);
-    void closeEvent(QCloseEvent *event);
     void StartGame();
     void StartStopGame();
+    int ShutInFild(int x, int y);
     StateGame state;
     StateGame previos_state;
     QString version = "Sea Battle v0.1";

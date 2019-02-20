@@ -3,30 +3,27 @@
 Images pictures = Images();
 
 Images::Images():
-    isLoaded_( false )
+    _isLoaded(false)
 {
 }
 
 void Images::load()
 {
-    if( isLoaded_ )
+    if(_isLoaded)
         return;
 
-    images.insert( "field", QImage("://img/background.png") );
-    images.insert( "dot", QImage("://img/dot.png") );
-    images.insert( "cross", QImage("://img/cross.png") );
-    //images.insert( "half", QImage(":/half.png") );
-    //images.insert( "redhalf", QImage(":/redhalf.png") );
-    //images.insert( "redfull", QImage(":/redfull.png") );
-    //images.insert( "about", QImage(":/about.png") );
-    isLoaded_ = true;
+    images.insert("field", QImage("://img/background.png"));
+    images.insert("dot", QImage("://img/dot.png"));
+    images.insert("cross", QImage("://img/cross.png"));
+    images.insert("empty", QImage("://img/empty.png"));
+    _isLoaded = true;
 }
 
-QImage& Images::get( const QString& imgName )
+QImage& Images::get(const QString& imgName)
 {
-    QMap<QString, QImage>::iterator i = images.find( imgName );
+    QMap<QString, QImage>::iterator i = images.find(imgName);
 
-    if( i == images.end() )
+    if(i == images.end())
         throw 1;
 
     return i.value();
@@ -34,5 +31,5 @@ QImage& Images::get( const QString& imgName )
 
 bool Images::isLoaded()
 {
-    return isLoaded_;
+    return _isLoaded;
 }

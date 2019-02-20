@@ -27,10 +27,17 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    images.cpp \
+    cell.cpp \
+    battlefield.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    defines.h \
+    images.h \
+    cell.h \
+    battlefield.h
 
 FORMS += \
         mainwindow.ui
