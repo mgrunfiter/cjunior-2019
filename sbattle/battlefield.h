@@ -8,7 +8,9 @@ class BattleField
 {
 public:
     BattleField(int top_x, int top_y);
-    Cell navy;
+    Cell navy[10][10];
+    int start_x;
+    int start_y;
 };
 
 #endif // BATTLEFIELD_H

@@ -31,11 +31,13 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setFixedSize(600, 390);
     this->setWindowTitle(version);
 
-//    BattleField MyField = new BattleField(FIELD1_X, FIELD1_Y);
-//    BattleField EnemyField = new BattleField(FIELD2_X, FIELD2_Y);
-
     BattleField MyField(FIELD1_X, FIELD1_Y);
     BattleField EnemyField(FIELD2_X, FIELD2_Y);
+
+    Cell cell(FIELD1_X, FIELD1_Y);
+    MyField.navy[0][0] = cell;
+
+    MyField.navy[0][0].setState(ST_SHIP);
 
     gameover = false;
     state = ST_PLACING_SHIPS;

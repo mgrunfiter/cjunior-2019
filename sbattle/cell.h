@@ -14,7 +14,7 @@ enum CellState
 class Cell
 {
 public:
-    Cell(int x, int y);
+    Cell(int x=0, int y=0);
     // попадание в ячейку - true, мимо - false
     bool hit(int x, int y);
     CellState getState();
@@ -27,7 +27,6 @@ public:
 private:
     CellState state;
     int top_x, top_y;
-    QImage image;
 
 };
 

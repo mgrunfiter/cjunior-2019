@@ -5,8 +5,7 @@
 Cell::Cell(int x, int y) :
     state(ST_EMPTY),
     top_x(x),
-    top_y(y),
-    image(pictures.get("empty"))
+    top_y(y)
 {
 }
 
