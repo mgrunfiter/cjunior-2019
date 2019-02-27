@@ -12,5 +12,6 @@
         <file>img/background.png</file>
         <file>img/cross.png</file>
         <file>img/dot.png</file>
+        <file>img/dot1.png</file>
     </qresource>
 </RCC>

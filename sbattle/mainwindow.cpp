@@ -74,6 +74,28 @@ void MainWindow::paintEvent(QPaintEvent *event)
             deltaY,
             pictures.get("field")
         );
+        int x = 68;
+        int y = 81;
+        painter.drawImage(x, y, pictures.get("cross"));
+        x += CELL_LENX;
+        painter.drawImage(x, y, pictures.get("dot"));
+        x += CELL_LENX;
+        painter.drawImage(x, y, pictures.get("1"));
+        x = 68;
+        y += 2 * CELL_LENY;
+        painter.drawImage(x, y, pictures.get("2g"));
+        y += 2 * CELL_LENY;
+        painter.drawImage(x, y, pictures.get("3g"));
+        y += 2 * CELL_LENY;
+        painter.drawImage(x, y, pictures.get("4g"));
+        x += 4 * CELL_LENX;
+        y = 81;
+        painter.drawImage(x, y, pictures.get("2v"));
+        x += 2 * CELL_LENX;
+        painter.drawImage(x, y, pictures.get("3v"));
+        y += 4 * CELL_LENY;
+        painter.drawImage(x, y, pictures.get("4v"));
+
 }
 
 int MainWindow::ShutInFild(int x, int y)
