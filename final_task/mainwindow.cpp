@@ -18,20 +18,54 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setWindowTitle(version);
 
     ui->leBaseFile->setText(file_name_BD);
-    dbs.setDatabaseName(file_name_BD);
-    dbs.open();
-
-    while (! dbs.isOpen()) {
+/*
+if(!QFile::exists("C:\\sqlite\\newDB.db")){
+    //file does not exist
+}
+QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+db.setDatabaseName("C:\\sqlite\\newDB.db");
+if(!db.open()){
+    //Database open error
+}
+{
+    QSqlQuery q;
+    if(!q.exec("SELECT name, sql FROM sqlite_master WHERE type='table' ;")){
+        //corrupt or invalid sqlite file
+}
+*/
+    bool FileBD = QFile::exists(file_name_BD);
+    while (! FileBD)
+    {
         qDebug() << dbs.lastError().text();
         qDebug() << "Can't open";
-        QMessageBox::warning(0, version, "Файл БД не найден!");
-        file_name_BD = getFilenameBD();
-        ui->leBaseFile->setText(file_name_BD);
-        dbs.open();
+//        QMessageBox::warning(0, version, "Файл БД не найден!");
+        if (MessBox("Файл БД не найден! Завершить работу?"))
+        {
+            FileBD = true;
+            this->close();
+        }
+        else
+        {
+            file_name_BD = getFilenameBD();
+            ui->leBaseFile->setText(file_name_BD);
+            dbs.open();
+        }
+        FileBD = QFile::exists(file_name_BD);
     }
-    if (dbs.isOpen()) {
-        qDebug() << "OK";
-    }
+//    dbs.setDatabaseName(file_name_BD);
+//    dbs.open();
+
+//    while (! dbs.isOpen()) {
+//        qDebug() << dbs.lastError().text();
+//        qDebug() << "Can't open";
+//        QMessageBox::warning(0, version, "Файл БД не найден!");
+//        file_name_BD = getFilenameBD();
+//        ui->leBaseFile->setText(file_name_BD);
+//        dbs.open();
+//    }
+//    if (dbs.isOpen()) {
+//        qDebug() << "OK";
+//    }
 
 }
 
@@ -73,9 +107,9 @@ bool MainWindow::MessBox(QString message)
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
-    event->ignore();
-    if (MessBox("Завершить работу?"))
-        event->accept();
+//    event->ignore();
+//    if (MessBox("Завершить работу?"))
+//        event->accept();
 }
 
 MainWindow::~MainWindow()
