@@ -2,7 +2,7 @@ QT += core
 QT -= gui
 QT += sql
 
-CONFIG += c++11
+CONFIG += c++14
 
 TARGET = db
 CONFIG += console

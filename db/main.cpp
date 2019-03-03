@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     QCoreApplication a(argc, argv);
 
     QSqlDatabase dbs = QSqlDatabase::addDatabase("QSQLITE");
-    dbs.setDatabaseName("/home/sergey/cpp/sqlite/rzhd.db");
+    dbs.setDatabaseName("rzhd.db");
 
     if (! dbs.open()) {
         std::cout << dbs.lastError().text().toStdString() << std::endl;

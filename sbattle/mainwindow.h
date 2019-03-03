@@ -10,10 +10,13 @@
 #include <QMessageBox>
 #include <QString>
 #include <QCloseEvent>
+#include <QtWidgets>
 #include "images.h"
 #include "defines.h"
 #include "cell.h"
 #include "battlefield.h"
+
+#include <iostream>
 
 namespace Ui {
 class MainWindow;
@@ -46,6 +49,7 @@ protected:
     void paintEvent(QPaintEvent *event);
     void mousePressEvent(QMouseEvent *ev);
     void closeEvent(QCloseEvent *event);
+    void setPosition(QWidget & current, QWidget * parrent = 0);
 
 private:
     Ui::MainWindow *ui;

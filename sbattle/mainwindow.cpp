@@ -20,6 +20,23 @@ bool MainWindow::MessBox(QString message)
     }
 }
 
+void MainWindow::setPosition(QWidget & current, QWidget * parrent)
+{
+    int left, top;
+    if ( parrent ){
+        left = parrent->pos().x() + (parrent->frameGeometry().width() / 2) -
+               (current.frameGeometry().width() / 2);
+        top = parrent->pos().y() + (parrent->frameGeometry().height() / 2) -
+              (current.frameGeometry().height() / 2);
+    } else{
+        left = (qApp->desktop()->width() / 2) - (current.frameGeometry().width() / 2);
+        top = (qApp->desktop()->height() / 2) - (current.frameGeometry().height() / 2);
+    }
+    current.setGeometry(QRect(left, top,
+               current.frameGeometry().width(),
+               current.frameGeometry().height()));
+}
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -30,6 +47,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->resize(600, 390);          // Устанавливаем размеры окна приложения
     this->setFixedSize(600, 390);
     this->setWindowTitle(version);
+    this->setPosition(*this, parent);
 
     BattleField MyField(FIELD1_X, FIELD1_Y);
     BattleField EnemyField(FIELD2_X, FIELD2_Y);
