@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-//Несколько "быстрых" вариантов создания MessageBox
 //QMessageBox::warning(0,"Warning", "Warning message text");
 //QMessageBox::information(0, "Information", "Information message text");
 //QMessageBox::critical(0, "Critical", "Critical message text");
@@ -13,59 +12,62 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     this->resize(680, 340);          // Устанавливаем размеры окна приложения
-//    this->setFixedSize(680, 340);
     this->setPosition(*this, parent);
     this->setWindowTitle(version);
 
     ui->leBaseFile->setText(file_name_BD);
-/*
-if(!QFile::exists("C:\\sqlite\\newDB.db")){
-    //file does not exist
-}
-QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-db.setDatabaseName("C:\\sqlite\\newDB.db");
-if(!db.open()){
-    //Database open error
-}
-{
-    QSqlQuery q;
-    if(!q.exec("SELECT name, sql FROM sqlite_master WHERE type='table' ;")){
-        //corrupt or invalid sqlite file
-}
-*/
-    bool FileBD = QFile::exists(file_name_BD);
-    while (! FileBD)
+
+    if (! QFile::exists(file_name_BD))
     {
-        qDebug() << dbs.lastError().text();
-        qDebug() << "Can't open";
-//        QMessageBox::warning(0, version, "Файл БД не найден!");
-        if (MessBox("Файл БД не найден! Завершить работу?"))
+        QMessageBox::warning(0, version, "Файл БД не доступен! \n Для продолжения укажите файл БД.");
+        file_name_BD = getFilenameBD();
+        ui->leBaseFile->setText(file_name_BD);
+    }
+    if (! dbs.open())
+    {
+       qDebug() << "Can't open";
+       QMessageBox::warning(0, version, "Соединение с БД не установлено!");
+    }
+    else
+    {
+        QSqlQuery qu;
+        int numRows = 0;
+        qu.prepare("SELECT name, sql FROM sqlite_master WHERE type='table'");
+        qu.exec();
+
+        QSqlDatabase defaultDB = QSqlDatabase::database();
+        if (defaultDB.driver()->hasFeature(QSqlDriver::QuerySize)) {
+            numRows = qu.size();
+        } else {
+            // это может быть очень медленно
+            qu.last();
+            numRows = qu.at() + 1;
+        }
+
+        if ( numRows <= 0)
+//        if ( ! qu.exec("SELECT name, sql FROM sqlite_master WHERE type='table' ;"))
         {
-            FileBD = true;
-            this->close();
+           qDebug() << "corrupt or invalid sqlite file";
+           QMessageBox::critical(0, "Critical", "Файл БД поврежден или или недействителен!");
         }
         else
         {
-            file_name_BD = getFilenameBD();
-            ui->leBaseFile->setText(file_name_BD);
-            dbs.open();
-        }
-        FileBD = QFile::exists(file_name_BD);
-    }
-//    dbs.setDatabaseName(file_name_BD);
-//    dbs.open();
+            while (qu.next())
+            {
+//                std::string name;
+//                std::string sql;
+//                name = qu.value(0).toString().toStdString();
+//                sql = qu.value(1).toString().toStdString();
+//                std::cout << " name = " << name << " sql = " << sql << std::endl;
+                QString name = qu.value(0).toString();
+                QString sql = qu.value(1).toString();
+                qDebug() << " name = " << name << " sql = " << sql;
 
-//    while (! dbs.isOpen()) {
-//        qDebug() << dbs.lastError().text();
-//        qDebug() << "Can't open";
-//        QMessageBox::warning(0, version, "Файл БД не найден!");
-//        file_name_BD = getFilenameBD();
-//        ui->leBaseFile->setText(file_name_BD);
-//        dbs.open();
-//    }
-//    if (dbs.isOpen()) {
-//        qDebug() << "OK";
-//    }
+            }
+        }
+    }
+    // TODO:
+    // Процедура чтения из БД и перерисовки
 
 }
 
@@ -129,4 +131,6 @@ void MainWindow::on_tbBaseFile_clicked()
     dbs.setDatabaseName(file_name_BD);
     ui->leBaseFile->setText(file_name_BD);
     dbs.open();
+    // TODO:
+    // Процедура чтения из БД и перерисовки
 }
