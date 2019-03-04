@@ -48,7 +48,7 @@ MainWindow::MainWindow(QWidget *parent) :
 //        if ( ! qu.exec("SELECT name, sql FROM sqlite_master WHERE type='table' ;"))
         {
            qDebug() << "corrupt or invalid sqlite file";
-           QMessageBox::critical(0, "Critical", "Файл БД поврежден или или недействителен!");
+           QMessageBox::critical(0, version, "Файл БД поврежден или или недействителен!");
         }
         else
         {
