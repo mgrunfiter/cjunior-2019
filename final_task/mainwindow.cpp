@@ -23,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
         file_name_BD = getFilenameBD();
         ui->leBaseFile->setText(file_name_BD);
     }
+    dbs.setDatabaseName(file_name_BD);
     if (! dbs.open())
     {
        qDebug() << "Can't open";
@@ -30,21 +31,23 @@ MainWindow::MainWindow(QWidget *parent) :
     }
     else
     {
-        QSqlQuery qu;
-        int numRows = 0;
-        qu.prepare("SELECT name, sql FROM sqlite_master WHERE type='table'");
-        qu.exec();
+//        QSqlQuery qu;
+//        int numRows = 0;
+        query.prepare("SELECT name, sql FROM sqlite_master WHERE type='table'");
+        query.exec();
 
-        QSqlDatabase defaultDB = QSqlDatabase::database();
-        if (defaultDB.driver()->hasFeature(QSqlDriver::QuerySize)) {
-            numRows = qu.size();
-        } else {
-            // это может быть очень медленно
-            qu.last();
-            numRows = qu.at() + 1;
-        }
+//        QSqlDatabase defaultDB = QSqlDatabase::database();
+//        QSqlDatabase defaultDB = QSqlDatabase::addDatabase("QSQLITE");
+//        if (defaultDB.driver()->hasFeature(QSqlDriver::QuerySize)) {
+//            numRows = query.size();
+//        } else {
+//            // это может быть очень медленно
+//            query.last();
+//            numRows = query.at() + 1;
+//        }
 
-        if ( numRows <= 0)
+//        if ( numRows <= 0)
+        if (query.size() > 0)
 //        if ( ! qu.exec("SELECT name, sql FROM sqlite_master WHERE type='table' ;"))
         {
            qDebug() << "corrupt or invalid sqlite file";
@@ -52,15 +55,16 @@ MainWindow::MainWindow(QWidget *parent) :
         }
         else
         {
-            while (qu.next())
+//            query.first();
+            while (query.next())
             {
 //                std::string name;
 //                std::string sql;
 //                name = qu.value(0).toString().toStdString();
 //                sql = qu.value(1).toString().toStdString();
 //                std::cout << " name = " << name << " sql = " << sql << std::endl;
-                QString name = qu.value(0).toString();
-                QString sql = qu.value(1).toString();
+                QString name = query.value(0).toString();
+                QString sql = query.value(1).toString();
                 qDebug() << " name = " << name << " sql = " << sql;
 
             }
