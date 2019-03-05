@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->leBaseFile->setText(file_name_BD);
 
+    // Подключаемся к базе
     if (! QFile::exists(file_name_BD))
     {
         QMessageBox::warning(0, version, "Файл БД не доступен! \n Для продолжения укажите файл БД.");
@@ -26,48 +27,32 @@ MainWindow::MainWindow(QWidget *parent) :
     dbs.setDatabaseName(file_name_BD);
     if (! dbs.open())
     {
-       qDebug() << "Can't open";
+       qWarning() << "Can't open";
        QMessageBox::warning(0, version, "Соединение с БД не установлено!");
     }
     else
     {
-//        QSqlQuery qu;
-//        int numRows = 0;
         query.prepare("SELECT name, sql FROM sqlite_master WHERE type='table'");
         query.exec();
-
-//        QSqlDatabase defaultDB = QSqlDatabase::database();
-//        QSqlDatabase defaultDB = QSqlDatabase::addDatabase("QSQLITE");
-//        if (defaultDB.driver()->hasFeature(QSqlDriver::QuerySize)) {
-//            numRows = query.size();
-//        } else {
-//            // это может быть очень медленно
-//            query.last();
-//            numRows = query.at() + 1;
-//        }
-
-//        if ( numRows <= 0)
-        if (query.size() > 0)
-//        if ( ! qu.exec("SELECT name, sql FROM sqlite_master WHERE type='table' ;"))
+        int countRows = 0;
+        query.last();
+        countRows = query.at() + 1;
+        if (countRows <= 0)
         {
-           qDebug() << "corrupt or invalid sqlite file";
+           qCritical() << "corrupt or invalid sqlite file";
            QMessageBox::critical(0, version, "Файл БД поврежден или или недействителен!");
         }
         else
         {
-//            query.first();
-            while (query.next())
-            {
-//                std::string name;
-//                std::string sql;
-//                name = qu.value(0).toString().toStdString();
-//                sql = qu.value(1).toString().toStdString();
-//                std::cout << " name = " << name << " sql = " << sql << std::endl;
+            query.first();
+            countRows = 0;
+            qInfo() << "Found next tables:";
+            do {
+                ++countRows;
                 QString name = query.value(0).toString();
-                QString sql = query.value(1).toString();
-                qDebug() << " name = " << name << " sql = " << sql;
+                qInfo() << countRows << "table name =" << name;
 
-            }
+            } while (query.next());
         }
     }
     // TODO:
@@ -113,9 +98,12 @@ bool MainWindow::MessBox(QString message)
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
-//    event->ignore();
-//    if (MessBox("Завершить работу?"))
-//        event->accept();
+    event->ignore();
+    if (MessBox("Завершить работу?"))
+    {
+        qInfo() << "Programm closed";
+        event->accept();
+    }
 }
 
 MainWindow::~MainWindow()
