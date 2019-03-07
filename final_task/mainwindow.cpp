@@ -55,6 +55,13 @@ MainWindow::MainWindow(QWidget *parent) :
             } while (query.next());
         }
     }
+    double max_x = 10000;
+    double min_x = 0;
+    double max_y = 10000;
+    double min_y = 0;
+
+    ui->widget->xAxis->setRange(min_x, max_x);//Для оси Ox
+    ui->widget->yAxis->setRange(min_y, max_y);//Для оси Oy
     // TODO:
     // Процедура чтения из БД и перерисовки
 
