@@ -8,6 +8,7 @@
 #include <QDebug>
 #include <QCloseEvent>
 #include "logger.h"
+#include "defines.h"
 
 namespace Ui {
 class MainWindow;

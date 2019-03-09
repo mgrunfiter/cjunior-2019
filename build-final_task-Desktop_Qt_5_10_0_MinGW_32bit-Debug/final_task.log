@@ -1,0 +1,104 @@
+2019-03-06 22:09:08.798 INF default: Programm starting
+2019-03-06 22:09:42.637 DBG default: onSelectionChange () 0
+2019-03-06 22:09:48.442 DBG default: onSelectionChange (QUrl("file:///D:/_git/cpp/cjunior-2019/build-final_task-Desktop_Qt_5_10_0_MinGW_32bit-Debug")) 1
+2019-03-06 22:09:49.722 DBG default: onSelectionChange (QUrl("file:///D:/_git/cpp/cjunior-2019/final_task")) 1
+2019-03-06 22:09:49.988 DBG default: onSelectionChange () 0
+2019-03-06 22:09:50.538 DBG default: onSelectionChange (QUrl("file:///D:/_git/cpp/cjunior-2019/final_task/db")) 1
+2019-03-06 22:09:50.756 DBG default: onSelectionChange () 0
+2019-03-06 22:09:51.306 DBG default: onSelectionChange (QUrl("file:///D:/_git/cpp/cjunior-2019/final_task/db/rzhd.db")) 1
+2019-03-06 22:09:51.621 INF default: Found next tables:
+2019-03-06 22:09:51.621 INF default: 1 table name = "RAILWAY_OBJ_TYPE"
+2019-03-06 22:09:51.621 INF default: 2 table name = "sqlite_sequence"
+2019-03-06 22:09:51.621 INF default: 3 table name = "VERSION"
+2019-03-06 22:09:51.621 INF default: 4 table name = "STAGE_CIRCUIT_TYPE"
+2019-03-06 22:09:51.622 INF default: 5 table name = "RAILWAY_OBJ_SIGNAL_TYPE"
+2019-03-06 22:09:51.622 INF default: 6 table name = "RAILWAY_OBJ"
+2019-03-06 22:09:51.622 INF default: 7 table name = "RAILWAY_OBJ_SECTION"
+2019-03-06 22:09:51.622 INF default: 8 table name = "RAILWAY_OBJ_SECTION_OBJECTS"
+2019-03-06 22:09:51.622 INF default: 9 table name = "RAILWAY_OBJ_CIRCUIT"
+2019-03-06 22:09:51.622 INF default: 10 table name = "GEO_LINE_ADDITIONAL_POINTS"
+2019-03-06 22:09:51.622 INF default: 11 table name = "GEO_LINE"
+2019-03-06 22:09:51.622 INF default: 12 table name = "RAILWAY_OBJ_SINGLE_SWITCH"
+2019-03-06 22:09:51.622 INF default: 13 table name = "RAILWAY_OBJ_JOINT"
+2019-03-06 22:09:51.622 INF default: 14 table name = "RAILWAY_OBJ_DEADEND"
+2019-03-06 22:09:51.622 INF default: 15 table name = "RAILWAY_OBJ_SIGNAL"
+2019-03-06 22:09:51.622 INF default: 16 table name = "GEO_POINT"
+2019-03-06 22:10:02.570 INF default: Programm closed
+2019-03-06 22:15:55.463 INF default: Programm starting
+2019-03-06 22:15:57.743 DBG default: onSelectionChange () 0
+2019-03-06 22:15:59.659 DBG default: onSelectionChange (QUrl("file:///D:/_git/cpp/cjunior-2019/build-final_task-Desktop_Qt_5_10_0_MinGW_32bit-Debug")) 1
+2019-03-06 22:16:00.915 DBG default: onSelectionChange (QUrl("file:///D:/_git/cpp/cjunior-2019/final_task")) 1
+2019-03-06 22:16:01.188 DBG default: onSelectionChange () 0
+2019-03-06 22:16:02.234 DBG default: onSelectionChange (QUrl("file:///D:/_git/cpp/cjunior-2019/final_task/db")) 1
+2019-03-06 22:16:02.478 DBG default: onSelectionChange () 0
+2019-03-06 22:16:02.970 DBG default: onSelectionChange (QUrl("file:///D:/_git/cpp/cjunior-2019/final_task/db/rzhd.db")) 1
+2019-03-06 22:16:03.219 INF default: Found next tables:
+2019-03-06 22:16:03.219 INF default: 1 table name = "RAILWAY_OBJ_TYPE"
+2019-03-06 22:16:03.219 INF default: 2 table name = "sqlite_sequence"
+2019-03-06 22:16:03.219 INF default: 3 table name = "VERSION"
+2019-03-06 22:16:03.219 INF default: 4 table name = "STAGE_CIRCUIT_TYPE"
+2019-03-06 22:16:03.219 INF default: 5 table name = "RAILWAY_OBJ_SIGNAL_TYPE"
+2019-03-06 22:16:03.219 INF default: 6 table name = "RAILWAY_OBJ"
+2019-03-06 22:16:03.219 INF default: 7 table name = "RAILWAY_OBJ_SECTION"
+2019-03-06 22:16:03.219 INF default: 8 table name = "RAILWAY_OBJ_SECTION_OBJECTS"
+2019-03-06 22:16:03.220 INF default: 9 table name = "RAILWAY_OBJ_CIRCUIT"
+2019-03-06 22:16:03.220 INF default: 10 table name = "GEO_LINE_ADDITIONAL_POINTS"
+2019-03-06 22:16:03.220 INF default: 11 table name = "GEO_LINE"
+2019-03-06 22:16:03.220 INF default: 12 table name = "RAILWAY_OBJ_SINGLE_SWITCH"
+2019-03-06 22:16:03.220 INF default: 13 table name = "RAILWAY_OBJ_JOINT"
+2019-03-06 22:16:03.220 INF default: 14 table name = "RAILWAY_OBJ_DEADEND"
+2019-03-06 22:16:03.220 INF default: 15 table name = "RAILWAY_OBJ_SIGNAL"
+2019-03-06 22:16:03.220 INF default: 16 table name = "GEO_POINT"
+2019-03-06 22:16:09.527 INF default: Programm closed
+2019-03-06 22:37:48.263 INF default: Programm starting
+2019-03-06 22:37:50.132 DBG default: onSelectionChange () 0
+2019-03-06 22:37:51.742 DBG default: onSelectionChange (QUrl("file:///D:/_git/cpp/cjunior-2019/build-final_task-Desktop_Qt_5_10_0_MinGW_32bit-Debug")) 1
+2019-03-06 22:37:52.851 DBG default: onSelectionChange (QUrl("file:///D:/_git/cpp/cjunior-2019/final_task")) 1
+2019-03-06 22:37:53.121 DBG default: onSelectionChange () 0
+2019-03-06 22:37:54.019 DBG default: onSelectionChange (QUrl("file:///D:/_git/cpp/cjunior-2019/final_task/db")) 1
+2019-03-06 22:37:54.304 DBG default: onSelectionChange () 0
+2019-03-06 22:37:54.931 DBG default: onSelectionChange (QUrl("file:///D:/_git/cpp/cjunior-2019/final_task/db/rzhd.db")) 1
+2019-03-06 22:37:55.215 INF default: Found next tables:
+2019-03-06 22:37:55.215 INF default: 1 table name = "RAILWAY_OBJ_TYPE"
+2019-03-06 22:37:55.215 INF default: 2 table name = "sqlite_sequence"
+2019-03-06 22:37:55.215 INF default: 3 table name = "VERSION"
+2019-03-06 22:37:55.215 INF default: 4 table name = "STAGE_CIRCUIT_TYPE"
+2019-03-06 22:37:55.215 INF default: 5 table name = "RAILWAY_OBJ_SIGNAL_TYPE"
+2019-03-06 22:37:55.215 INF default: 6 table name = "RAILWAY_OBJ"
+2019-03-06 22:37:55.215 INF default: 7 table name = "RAILWAY_OBJ_SECTION"
+2019-03-06 22:37:55.215 INF default: 8 table name = "RAILWAY_OBJ_SECTION_OBJECTS"
+2019-03-06 22:37:55.216 INF default: 9 table name = "RAILWAY_OBJ_CIRCUIT"
+2019-03-06 22:37:55.216 INF default: 10 table name = "GEO_LINE_ADDITIONAL_POINTS"
+2019-03-06 22:37:55.216 INF default: 11 table name = "GEO_LINE"
+2019-03-06 22:37:55.216 INF default: 12 table name = "RAILWAY_OBJ_SINGLE_SWITCH"
+2019-03-06 22:37:55.216 INF default: 13 table name = "RAILWAY_OBJ_JOINT"
+2019-03-06 22:37:55.216 INF default: 14 table name = "RAILWAY_OBJ_DEADEND"
+2019-03-06 22:37:55.216 INF default: 15 table name = "RAILWAY_OBJ_SIGNAL"
+2019-03-06 22:37:55.216 INF default: 16 table name = "GEO_POINT"
+2019-03-06 22:37:58.503 INF default: Programm closed
+2019-03-09 15:20:18.647 INF default: Programm starting
+2019-03-09 15:20:41.987 DBG default: onSelectionChange () 0
+2019-03-09 15:20:43.806 DBG default: onSelectionChange (QUrl("file:///D:/_git/cpp/cjunior-2019/build-final_task-Desktop_Qt_5_10_0_MinGW_32bit-Debug")) 1
+2019-03-09 15:20:44.836 DBG default: onSelectionChange (QUrl("file:///D:/_git/cpp/cjunior-2019/final_task")) 1
+2019-03-09 15:20:45.099 DBG default: onSelectionChange () 0
+2019-03-09 15:20:45.883 DBG default: onSelectionChange (QUrl("file:///D:/_git/cpp/cjunior-2019/final_task/db")) 1
+2019-03-09 15:20:46.143 DBG default: onSelectionChange () 0
+2019-03-09 15:20:46.675 DBG default: onSelectionChange (QUrl("file:///D:/_git/cpp/cjunior-2019/final_task/db/rzhd.db")) 1
+2019-03-09 15:20:47.013 INF default: Found next tables:
+2019-03-09 15:20:47.013 INF default: 1 table name = "RAILWAY_OBJ_TYPE"
+2019-03-09 15:20:47.013 INF default: 2 table name = "sqlite_sequence"
+2019-03-09 15:20:47.013 INF default: 3 table name = "VERSION"
+2019-03-09 15:20:47.013 INF default: 4 table name = "STAGE_CIRCUIT_TYPE"
+2019-03-09 15:20:47.013 INF default: 5 table name = "RAILWAY_OBJ_SIGNAL_TYPE"
+2019-03-09 15:20:47.013 INF default: 6 table name = "RAILWAY_OBJ"
+2019-03-09 15:20:47.013 INF default: 7 table name = "RAILWAY_OBJ_SECTION"
+2019-03-09 15:20:47.013 INF default: 8 table name = "RAILWAY_OBJ_SECTION_OBJECTS"
+2019-03-09 15:20:47.013 INF default: 9 table name = "RAILWAY_OBJ_CIRCUIT"
+2019-03-09 15:20:47.013 INF default: 10 table name = "GEO_LINE_ADDITIONAL_POINTS"
+2019-03-09 15:20:47.013 INF default: 11 table name = "GEO_LINE"
+2019-03-09 15:20:47.013 INF default: 12 table name = "RAILWAY_OBJ_SINGLE_SWITCH"
+2019-03-09 15:20:47.014 INF default: 13 table name = "RAILWAY_OBJ_JOINT"
+2019-03-09 15:20:47.014 INF default: 14 table name = "RAILWAY_OBJ_DEADEND"
+2019-03-09 15:20:47.014 INF default: 15 table name = "RAILWAY_OBJ_SIGNAL"
+2019-03-09 15:20:47.014 INF default: 16 table name = "GEO_POINT"
+2019-03-09 15:21:08.274 INF default: Programm closed

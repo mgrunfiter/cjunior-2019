@@ -34,7 +34,8 @@ SOURCES += \
 HEADERS += \
         mainwindow.h \
     qcustomplot.h \
-    logger.h
+    logger.h \
+    defines.h
 
 FORMS += \
         mainwindow.ui
