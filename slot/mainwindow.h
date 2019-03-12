@@ -4,9 +4,7 @@
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QKeyEvent>
-#include <QMouseEvent>
 #include <QDebug>
-#include <QPoint>
 #include "message.h"
 
 
@@ -24,8 +22,7 @@ public:
     void setName(QString n_name);
 
 protected:
-    void keyPressEvent(QKeyEvent *event);
-    void mousePressEvent(QMouseEvent *ev);
+    bool eventFilter(QObject *obj, QEvent *event);
 
 signals:
     void sendMessage(const Message &msg);
@@ -35,7 +32,6 @@ public slots:
 
 private slots:
     void on_send_clicked();
-
 
 private:
     Ui::MainWindow *ui;

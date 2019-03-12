@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->textEdit->installEventFilter(this);
 }
 
 
@@ -19,29 +20,20 @@ void MainWindow::setName(QString n_name)
     name = n_name;
 }
 
-void MainWindow::keyPressEvent(QKeyEvent *event)
+bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 {
-//    if (event->type() == QEvent::KeyPress)
-//    {
-//        QKeyEvent *ke = static_cast<QKeyEvent *>(event);
-//        if (ke->key() == Qt::Key_Enter) {
+    if (event->type() == QEvent::KeyPress) {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+        if ((keyEvent->key() == Qt::Key_Return) && (keyEvent->modifiers() == Qt::ControlModifier))
+        {
 //            QMessageBox::information(0, "Information", "Enter pressed");
-//        }
-
-//    }
-//    if ((event->key() == Qt::Key_F10) && (event->modifiers() == Qt::ControlModifier))
-    if ( (event->modifiers() == Qt::ControlModifier) && (event->key() == Qt::Key_F10) )
-    {
-         QMessageBox::information(0, "Information", "Enter pressed");
-         this_message = Message(ui->textEdit->toPlainText(), name);
-         emit sendMessage(this_message);
+            this_message = Message(ui->textEdit->toPlainText(), name);
+            emit sendMessage(this_message);
+            return true;
+        }
+        return false;
     }
-}
-
-void MainWindow::mousePressEvent(QMouseEvent *ev)
-{
-    QPoint pos = ev->pos();
-    qDebug() << "x =" << pos.x() << "y =" << pos.y();
+    return QObject::eventFilter(obj, event);
 }
 
 void MainWindow::getMessage(const Message &msg)
@@ -49,7 +41,6 @@ void MainWindow::getMessage(const Message &msg)
     this_message = msg;
     QString message = "from :" + this_message.getAddress() + "\nmessage: " + this_message.body();
     ui->textEdit->setPlainText(message);
-//    ui->textEdit->setPlainText(this_message.body());
 }
 
 void MainWindow::on_send_clicked()
