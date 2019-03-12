@@ -26,3 +26,6 @@
 2019-03-09 15:49:28.612 INF default: Programm starting
 2019-03-09 15:49:36.271 CRT default: corrupt or invalid sqlite file
 2019-03-09 15:50:41.886 INF default: Programm closed
+2019-03-12 19:30:22.806 INF default: Programm starting
+2019-03-12 19:30:30.451 CRT default: corrupt or invalid sqlite file
+2019-03-12 19:30:34.978 INF default: Programm closed

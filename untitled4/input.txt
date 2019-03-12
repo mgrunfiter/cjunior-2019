@@ -1,0 +1,573 @@
+Frequently asked questions
+  C++ 
+What is the purpose of this site?
+Our goal is to provide programmers with a complete online reference for the C and C++ languages and standard libraries, i.e. a more convenient version of the C and C++ standards.
+
+The primary objective is to have a good specification of C and C++. That is, things that are implicitly clear to an experienced programmer should be omitted, or at least separated from the main description of a function, constant or class. A good place to demonstrate various use cases is the "example" section of each page. Rationale, implementation notes, domain specific documentation are preferred to be included in the "notes" section of each page.
+
+Why is the material here limited to the standard C and C++?
+In short, we chose quality over quantity. Some boost libraries could also be candidates for inclusion though. While their tutorials are very good, the reference documentation is often very inflexible and inconvenient.
+
+Where can I find more information?
+Check out the following collections of links [1] [2] for alternative links and material that falls outside of the scope of this site.
+
+Which revision of the C Standard does this reference adhere to?
+C17 is the most recently published C Standard, so it is the main focus of the C reference.
+
+However, in order to provide a more complete reference, we also include documentation describing previous versions of the standard (C89, C95, C99, C11), drafts for future versions of the standard, and the Technical Specifications. All version-specific documentation should be labeled appropriately.
+
+The various C standard revisions can be found at:
+
+C2x
+The latest free working draft is n2310 (2018-11-06)
+C17
+The official C17 Standard can be purchased from ISO
+The final draft standard C17 FDIS is available for free
+C11
+The C11 standard was withdrawn and is no longer available from ISO, although it may still be purchased from ANSI.
+A C11 working draft n1570 (2011-04-12) is available for free and differs only minimally from the final C11 Standard.
+C99
+The C99 standard was withdrawn and is no longer available from ISO, although it may still be purchased from ANSI.
+The final C99:TC3 working draft n1256 (2007-09-07) is freely available and differs only minimally from the final C99 standard including all three Technical Corrigenda.
+C95
+The C90 amendment AMD1, which transforms C90 to C95 is no longer available from official sources, although it may be found with some document retailers, such as Global Engineering Documents
+C89/C90
+The C90 standard was withdrawn and is no longer available from official sources, although it may be found with some document retailers, such as SAI-Global
+The final draft (X3J11/90-013 (ANSI numbering) or n119 (WG14 numbering)) is not publicly available, but the final public review draft X3J11/88-090 (1988-05-13) is available and differs minimally from the final C89 standard.
+Which revision of the C++ Standard does this reference adhere to?
+C++17 is the most recently published C++ Standard, so that is the main focus of this site.
+
+However, in order to provide a more complete reference, we also include documentation describing previous versions of the standard (C++98, C++03, C++11, C++14) as well as draft documentation for future versions of the standard (C++20, and the Technical Specifications). All version-specific documentation should be labeled appropriately.
+
+The various C++ Standards themselves can be found at:
+
+C++20
+The latest free working draft is n4800 (2019-01-21)
+The most up-to-date version can be found, in source form, at https://github.com/cplusplus/draft and in browseable form at eel.is/c++draft.
+C++17
+The official C++17 standard can be purchased directly from ISO and is expected to also be made available by ANSI and other member organizations.
+The final draft of C++17 is n4659 (2017-03-21).
+C++14
+The C++14 standard was withdrawn and is no longer available from ISO. It can still be purchased through ANSI and other member organizations
+A free C++14 final draft (n4140) is available as well as the diff between it and the standard (n4141)
+C++11
+The C++11 standard was withdrawn and is no longer available from ISO.
+A free C++11 Working Draft (n3337) is available. (The differences between the Working Draft and the C++11 Standard are minor.)
+C++03
+The C++03 standard was withdrawn and is no longer available from ISO.
+C++98
+The C++98 standard was withdrawn and is no longer available from ISO.
+Why are there differences between the standard and cppreference?
+Cppreference is maintained by and aims to be useful to programmers, not ISO historians, and as programmers, we care what we get when we use -std=c++17, or whatever your compiler's equivalent flag is. As a result, our documentation is for a hypothetical complete and correct implementation of each C and C++ standard revision plus all subsequent bugfixes and clarifications applicable to that revision. When available, we use the standards committee guidance and the current implementations as evidence for what such a hypothetical implementation would do.
+
+Do you have a version of this site suitable for offline viewing?
+Sure, you can grab one here.
+
+Can you make the site easier to view?
+You might find a a dark theme more legible than the default bright theme.
+
+What can I do with the material on this site?
+The content is licensed under Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA) and by the GNU Free Documentation License (GFDL) (unversioned, with no invariant sections, front-cover texts, or back-cover texts). That means that you can use this site in almost any way you like, including mirroring, copying, translating, etc. All we would ask is to provide link back to cppreference.com so that people know where to get the most up-to-date content. In addition to that, any modified content should be released under an equivalent license so that everyone could benefit from the modified versions.
+
+What? This is a wiki? Can I change stuff?
+Absolutely. If you see something that is wrong, fix it. However, currently the wiki is limited to standard C and C++, so you should not add non-standard content like compiler-specific extensions. Also, please double check any changes with the appropriate standard. If you are unsure about anything, you can ask about it in the discussion pages.
+
+How can I edit? What are the syntax rules?
+This wiki uses Mediawiki, the same wiki system as the Wikipedia project. You can use their help pages to introduce you to the Mediawiki wikicode syntax. However, most of the content in this wiki is wrapped in quite complex templates. They do most of the formatting and help to aggregate the repetitive stuff in one place, so when something is to be modified, there is no need to make the same modification tens or hundreds of times. For help about the templates used in this wiki, see Help:Templates.
+
+The wiki aims to have consistent style. Please see Help:Manual of style for a style guide that helps to follow consistent style and formatting in the wiki.
+
+Note, however, that you don't need to know neither of the complex templates, or abovementioned guidelines in order to contribute. It is much harder to write the content itself, than to apply the formatting, so don't care about the style when writing, as someone will fix that later.
+
+Some high-traffic templates are locked in order to prevent vandalism or because of performance reasons. In these cases you should request a modification in the discussion page.
+
+I want to help. Where should I start?
+Great! There are several special pages that contain suggestions for things that need to be fixed:
+
+Pages that could use examples (a good starting point)
+Pages marked with specific todo items
+Pages marked with general todos
+Who is behind this site?
+cppreference.com was created and is maintained by a group of C++ enthusiasts from around the world. The site has been entirely community-supported since its inception in 2000; currently hosting costs are partially offset by ads (please report any ad issues to comments@cppreference.com), donations, and the sale of horribly-pun-filled C++-related merchandise.
+
+How can I contact you?
+You can contact us at comments@cppreference.com.
+
+In case you're reporting a broken link, it might be easier to report it here.Frequently asked questions
+  C++ 
+What is the purpose of this site?
+Our goal is to provide programmers with a complete online reference for the C and C++ languages and standard libraries, i.e. a more convenient version of the C and C++ standards.
+
+The primary objective is to have a good specification of C and C++. That is, things that are implicitly clear to an experienced programmer should be omitted, or at least separated from the main description of a function, constant or class. A good place to demonstrate various use cases is the "example" section of each page. Rationale, implementation notes, domain specific documentation are preferred to be included in the "notes" section of each page.
+
+Why is the material here limited to the standard C and C++?
+In short, we chose quality over quantity. Some boost libraries could also be candidates for inclusion though. While their tutorials are very good, the reference documentation is often very inflexible and inconvenient.
+
+Where can I find more information?
+Check out the following collections of links [1] [2] for alternative links and material that falls outside of the scope of this site.
+
+Which revision of the C Standard does this reference adhere to?
+C17 is the most recently published C Standard, so it is the main focus of the C reference.
+
+However, in order to provide a more complete reference, we also include documentation describing previous versions of the standard (C89, C95, C99, C11), drafts for future versions of the standard, and the Technical Specifications. All version-specific documentation should be labeled appropriately.
+
+The various C standard revisions can be found at:
+
+C2x
+The latest free working draft is n2310 (2018-11-06)
+C17
+The official C17 Standard can be purchased from ISO
+The final draft standard C17 FDIS is available for free
+C11
+The C11 standard was withdrawn and is no longer available from ISO, although it may still be purchased from ANSI.
+A C11 working draft n1570 (2011-04-12) is available for free and differs only minimally from the final C11 Standard.
+C99
+The C99 standard was withdrawn and is no longer available from ISO, although it may still be purchased from ANSI.
+The final C99:TC3 working draft n1256 (2007-09-07) is freely available and differs only minimally from the final C99 standard including all three Technical Corrigenda.
+C95
+The C90 amendment AMD1, which transforms C90 to C95 is no longer available from official sources, although it may be found with some document retailers, such as Global Engineering Documents
+C89/C90
+The C90 standard was withdrawn and is no longer available from official sources, although it may be found with some document retailers, such as SAI-Global
+The final draft (X3J11/90-013 (ANSI numbering) or n119 (WG14 numbering)) is not publicly available, but the final public review draft X3J11/88-090 (1988-05-13) is available and differs minimally from the final C89 standard.
+Which revision of the C++ Standard does this reference adhere to?
+C++17 is the most recently published C++ Standard, so that is the main focus of this site.
+
+However, in order to provide a more complete reference, we also include documentation describing previous versions of the standard (C++98, C++03, C++11, C++14) as well as draft documentation for future versions of the standard (C++20, and the Technical Specifications). All version-specific documentation should be labeled appropriately.
+
+The various C++ Standards themselves can be found at:
+
+C++20
+The latest free working draft is n4800 (2019-01-21)
+The most up-to-date version can be found, in source form, at https://github.com/cplusplus/draft and in browseable form at eel.is/c++draft.
+C++17
+The official C++17 standard can be purchased directly from ISO and is expected to also be made available by ANSI and other member organizations.
+The final draft of C++17 is n4659 (2017-03-21).
+C++14
+The C++14 standard was withdrawn and is no longer available from ISO. It can still be purchased through ANSI and other member organizations
+A free C++14 final draft (n4140) is available as well as the diff between it and the standard (n4141)
+C++11
+The C++11 standard was withdrawn and is no longer available from ISO.
+A free C++11 Working Draft (n3337) is available. (The differences between the Working Draft and the C++11 Standard are minor.)
+C++03
+The C++03 standard was withdrawn and is no longer available from ISO.
+C++98
+The C++98 standard was withdrawn and is no longer available from ISO.
+Why are there differences between the standard and cppreference?
+Cppreference is maintained by and aims to be useful to programmers, not ISO historians, and as programmers, we care what we get when we use -std=c++17, or whatever your compiler's equivalent flag is. As a result, our documentation is for a hypothetical complete and correct implementation of each C and C++ standard revision plus all subsequent bugfixes and clarifications applicable to that revision. When available, we use the standards committee guidance and the current implementations as evidence for what such a hypothetical implementation would do.
+
+Do you have a version of this site suitable for offline viewing?
+Sure, you can grab one here.
+
+Can you make the site easier to view?
+You might find a a dark theme more legible than the default bright theme.
+
+What can I do with the material on this site?
+The content is licensed under Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA) and by the GNU Free Documentation License (GFDL) (unversioned, with no invariant sections, front-cover texts, or back-cover texts). That means that you can use this site in almost any way you like, including mirroring, copying, translating, etc. All we would ask is to provide link back to cppreference.com so that people know where to get the most up-to-date content. In addition to that, any modified content should be released under an equivalent license so that everyone could benefit from the modified versions.
+
+What? This is a wiki? Can I change stuff?
+Absolutely. If you see something that is wrong, fix it. However, currently the wiki is limited to standard C and C++, so you should not add non-standard content like compiler-specific extensions. Also, please double check any changes with the appropriate standard. If you are unsure about anything, you can ask about it in the discussion pages.
+
+How can I edit? What are the syntax rules?
+This wiki uses Mediawiki, the same wiki system as the Wikipedia project. You can use their help pages to introduce you to the Mediawiki wikicode syntax. However, most of the content in this wiki is wrapped in quite complex templates. They do most of the formatting and help to aggregate the repetitive stuff in one place, so when something is to be modified, there is no need to make the same modification tens or hundreds of times. For help about the templates used in this wiki, see Help:Templates.
+
+The wiki aims to have consistent style. Please see Help:Manual of style for a style guide that helps to follow consistent style and formatting in the wiki.
+
+Note, however, that you don't need to know neither of the complex templates, or abovementioned guidelines in order to contribute. It is much harder to write the content itself, than to apply the formatting, so don't care about the style when writing, as someone will fix that later.
+
+Some high-traffic templates are locked in order to prevent vandalism or because of performance reasons. In these cases you should request a modification in the discussion page.
+
+I want to help. Where should I start?
+Great! There are several special pages that contain suggestions for things that need to be fixed:
+
+Pages that could use examples (a good starting point)
+Pages marked with specific todo items
+Pages marked with general todos
+Who is behind this site?
+cppreference.com was created and is maintained by a group of C++ enthusiasts from around the world. The site has been entirely community-supported since its inception in 2000; currently hosting costs are partially offset by ads (please report any ad issues to comments@cppreference.com), donations, and the sale of horribly-pun-filled C++-related merchandise.
+
+How can I contact you?
+You can contact us at comments@cppreference.com.
+
+In case you're reporting a broken link, it might be easier to report it here.Frequently asked questions
+  C++ 
+What is the purpose of this site?
+Our goal is to provide programmers with a complete online reference for the C and C++ languages and standard libraries, i.e. a more convenient version of the C and C++ standards.
+
+The primary objective is to have a good specification of C and C++. That is, things that are implicitly clear to an experienced programmer should be omitted, or at least separated from the main description of a function, constant or class. A good place to demonstrate various use cases is the "example" section of each page. Rationale, implementation notes, domain specific documentation are preferred to be included in the "notes" section of each page.
+
+Why is the material here limited to the standard C and C++?
+In short, we chose quality over quantity. Some boost libraries could also be candidates for inclusion though. While their tutorials are very good, the reference documentation is often very inflexible and inconvenient.
+
+Where can I find more information?
+Check out the following collections of links [1] [2] for alternative links and material that falls outside of the scope of this site.
+
+Which revision of the C Standard does this reference adhere to?
+C17 is the most recently published C Standard, so it is the main focus of the C reference.
+
+However, in order to provide a more complete reference, we also include documentation describing previous versions of the standard (C89, C95, C99, C11), drafts for future versions of the standard, and the Technical Specifications. All version-specific documentation should be labeled appropriately.
+
+The various C standard revisions can be found at:
+
+C2x
+The latest free working draft is n2310 (2018-11-06)
+C17
+The official C17 Standard can be purchased from ISO
+The final draft standard C17 FDIS is available for free
+C11
+The C11 standard was withdrawn and is no longer available from ISO, although it may still be purchased from ANSI.
+A C11 working draft n1570 (2011-04-12) is available for free and differs only minimally from the final C11 Standard.
+C99
+The C99 standard was withdrawn and is no longer available from ISO, although it may still be purchased from ANSI.
+The final C99:TC3 working draft n1256 (2007-09-07) is freely available and differs only minimally from the final C99 standard including all three Technical Corrigenda.
+C95
+The C90 amendment AMD1, which transforms C90 to C95 is no longer available from official sources, although it may be found with some document retailers, such as Global Engineering Documents
+C89/C90
+The C90 standard was withdrawn and is no longer available from official sources, although it may be found with some document retailers, such as SAI-Global
+The final draft (X3J11/90-013 (ANSI numbering) or n119 (WG14 numbering)) is not publicly available, but the final public review draft X3J11/88-090 (1988-05-13) is available and differs minimally from the final C89 standard.
+Which revision of the C++ Standard does this reference adhere to?
+C++17 is the most recently published C++ Standard, so that is the main focus of this site.
+
+However, in order to provide a more complete reference, we also include documentation describing previous versions of the standard (C++98, C++03, C++11, C++14) as well as draft documentation for future versions of the standard (C++20, and the Technical Specifications). All version-specific documentation should be labeled appropriately.
+
+The various C++ Standards themselves can be found at:
+
+C++20
+The latest free working draft is n4800 (2019-01-21)
+The most up-to-date version can be found, in source form, at https://github.com/cplusplus/draft and in browseable form at eel.is/c++draft.
+C++17
+The official C++17 standard can be purchased directly from ISO and is expected to also be made available by ANSI and other member organizations.
+The final draft of C++17 is n4659 (2017-03-21).
+C++14
+The C++14 standard was withdrawn and is no longer available from ISO. It can still be purchased through ANSI and other member organizations
+A free C++14 final draft (n4140) is available as well as the diff between it and the standard (n4141)
+C++11
+The C++11 standard was withdrawn and is no longer available from ISO.
+A free C++11 Working Draft (n3337) is available. (The differences between the Working Draft and the C++11 Standard are minor.)
+C++03
+The C++03 standard was withdrawn and is no longer available from ISO.
+C++98
+The C++98 standard was withdrawn and is no longer available from ISO.
+Why are there differences between the standard and cppreference?
+Cppreference is maintained by and aims to be useful to programmers, not ISO historians, and as programmers, we care what we get when we use -std=c++17, or whatever your compiler's equivalent flag is. As a result, our documentation is for a hypothetical complete and correct implementation of each C and C++ standard revision plus all subsequent bugfixes and clarifications applicable to that revision. When available, we use the standards committee guidance and the current implementations as evidence for what such a hypothetical implementation would do.
+
+Do you have a version of this site suitable for offline viewing?
+Sure, you can grab one here.
+
+Can you make the site easier to view?
+You might find a a dark theme more legible than the default bright theme.
+
+What can I do with the material on this site?
+The content is licensed under Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA) and by the GNU Free Documentation License (GFDL) (unversioned, with no invariant sections, front-cover texts, or back-cover texts). That means that you can use this site in almost any way you like, including mirroring, copying, translating, etc. All we would ask is to provide link back to cppreference.com so that people know where to get the most up-to-date content. In addition to that, any modified content should be released under an equivalent license so that everyone could benefit from the modified versions.
+
+What? This is a wiki? Can I change stuff?
+Absolutely. If you see something that is wrong, fix it. However, currently the wiki is limited to standard C and C++, so you should not add non-standard content like compiler-specific extensions. Also, please double check any changes with the appropriate standard. If you are unsure about anything, you can ask about it in the discussion pages.
+
+How can I edit? What are the syntax rules?
+This wiki uses Mediawiki, the same wiki system as the Wikipedia project. You can use their help pages to introduce you to the Mediawiki wikicode syntax. However, most of the content in this wiki is wrapped in quite complex templates. They do most of the formatting and help to aggregate the repetitive stuff in one place, so when something is to be modified, there is no need to make the same modification tens or hundreds of times. For help about the templates used in this wiki, see Help:Templates.
+
+The wiki aims to have consistent style. Please see Help:Manual of style for a style guide that helps to follow consistent style and formatting in the wiki.
+
+Note, however, that you don't need to know neither of the complex templates, or abovementioned guidelines in order to contribute. It is much harder to write the content itself, than to apply the formatting, so don't care about the style when writing, as someone will fix that later.
+
+Some high-traffic templates are locked in order to prevent vandalism or because of performance reasons. In these cases you should request a modification in the discussion page.
+
+I want to help. Where should I start?
+Great! There are several special pages that contain suggestions for things that need to be fixed:
+
+Pages that could use examples (a good starting point)
+Pages marked with specific todo items
+Pages marked with general todos
+Who is behind this site?
+cppreference.com was created and is maintained by a group of C++ enthusiasts from around the world. The site has been entirely community-supported since its inception in 2000; currently hosting costs are partially offset by ads (please report any ad issues to comments@cppreference.com), donations, and the sale of horribly-pun-filled C++-related merchandise.
+
+How can I contact you?
+You can contact us at comments@cppreference.com.
+
+In case you're reporting a broken link, it might be easier to report it here.Frequently asked questions
+  C++ 
+What is the purpose of this site?
+Our goal is to provide programmers with a complete online reference for the C and C++ languages and standard libraries, i.e. a more convenient version of the C and C++ standards.
+
+The primary objective is to have a good specification of C and C++. That is, things that are implicitly clear to an experienced programmer should be omitted, or at least separated from the main description of a function, constant or class. A good place to demonstrate various use cases is the "example" section of each page. Rationale, implementation notes, domain specific documentation are preferred to be included in the "notes" section of each page.
+
+Why is the material here limited to the standard C and C++?
+In short, we chose quality over quantity. Some boost libraries could also be candidates for inclusion though. While their tutorials are very good, the reference documentation is often very inflexible and inconvenient.
+
+Where can I find more information?
+Check out the following collections of links [1] [2] for alternative links and material that falls outside of the scope of this site.
+
+Which revision of the C Standard does this reference adhere to?
+C17 is the most recently published C Standard, so it is the main focus of the C reference.
+
+However, in order to provide a more complete reference, we also include documentation describing previous versions of the standard (C89, C95, C99, C11), drafts for future versions of the standard, and the Technical Specifications. All version-specific documentation should be labeled appropriately.
+
+The various C standard revisions can be found at:
+
+C2x
+The latest free working draft is n2310 (2018-11-06)
+C17
+The official C17 Standard can be purchased from ISO
+The final draft standard C17 FDIS is available for free
+C11
+The C11 standard was withdrawn and is no longer available from ISO, although it may still be purchased from ANSI.
+A C11 working draft n1570 (2011-04-12) is available for free and differs only minimally from the final C11 Standard.
+C99
+The C99 standard was withdrawn and is no longer available from ISO, although it may still be purchased from ANSI.
+The final C99:TC3 working draft n1256 (2007-09-07) is freely available and differs only minimally from the final C99 standard including all three Technical Corrigenda.
+C95
+The C90 amendment AMD1, which transforms C90 to C95 is no longer available from official sources, although it may be found with some document retailers, such as Global Engineering Documents
+C89/C90
+The C90 standard was withdrawn and is no longer available from official sources, although it may be found with some document retailers, such as SAI-Global
+The final draft (X3J11/90-013 (ANSI numbering) or n119 (WG14 numbering)) is not publicly available, but the final public review draft X3J11/88-090 (1988-05-13) is available and differs minimally from the final C89 standard.
+Which revision of the C++ Standard does this reference adhere to?
+C++17 is the most recently published C++ Standard, so that is the main focus of this site.
+
+However, in order to provide a more complete reference, we also include documentation describing previous versions of the standard (C++98, C++03, C++11, C++14) as well as draft documentation for future versions of the standard (C++20, and the Technical Specifications). All version-specific documentation should be labeled appropriately.
+
+The various C++ Standards themselves can be found at:
+
+C++20
+The latest free working draft is n4800 (2019-01-21)
+The most up-to-date version can be found, in source form, at https://github.com/cplusplus/draft and in browseable form at eel.is/c++draft.
+C++17
+The official C++17 standard can be purchased directly from ISO and is expected to also be made available by ANSI and other member organizations.
+The final draft of C++17 is n4659 (2017-03-21).
+C++14
+The C++14 standard was withdrawn and is no longer available from ISO. It can still be purchased through ANSI and other member organizations
+A free C++14 final draft (n4140) is available as well as the diff between it and the standard (n4141)
+C++11
+The C++11 standard was withdrawn and is no longer available from ISO.
+A free C++11 Working Draft (n3337) is available. (The differences between the Working Draft and the C++11 Standard are minor.)
+C++03
+The C++03 standard was withdrawn and is no longer available from ISO.
+C++98
+The C++98 standard was withdrawn and is no longer available from ISO.
+Why are there differences between the standard and cppreference?
+Cppreference is maintained by and aims to be useful to programmers, not ISO historians, and as programmers, we care what we get when we use -std=c++17, or whatever your compiler's equivalent flag is. As a result, our documentation is for a hypothetical complete and correct implementation of each C and C++ standard revision plus all subsequent bugfixes and clarifications applicable to that revision. When available, we use the standards committee guidance and the current implementations as evidence for what such a hypothetical implementation would do.
+
+Do you have a version of this site suitable for offline viewing?
+Sure, you can grab one here.
+
+Can you make the site easier to view?
+You might find a a dark theme more legible than the default bright theme.
+
+What can I do with the material on this site?
+The content is licensed under Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA) and by the GNU Free Documentation License (GFDL) (unversioned, with no invariant sections, front-cover texts, or back-cover texts). That means that you can use this site in almost any way you like, including mirroring, copying, translating, etc. All we would ask is to provide link back to cppreference.com so that people know where to get the most up-to-date content. In addition to that, any modified content should be released under an equivalent license so that everyone could benefit from the modified versions.
+
+What? This is a wiki? Can I change stuff?
+Absolutely. If you see something that is wrong, fix it. However, currently the wiki is limited to standard C and C++, so you should not add non-standard content like compiler-specific extensions. Also, please double check any changes with the appropriate standard. If you are unsure about anything, you can ask about it in the discussion pages.
+
+How can I edit? What are the syntax rules?
+This wiki uses Mediawiki, the same wiki system as the Wikipedia project. You can use their help pages to introduce you to the Mediawiki wikicode syntax. However, most of the content in this wiki is wrapped in quite complex templates. They do most of the formatting and help to aggregate the repetitive stuff in one place, so when something is to be modified, there is no need to make the same modification tens or hundreds of times. For help about the templates used in this wiki, see Help:Templates.
+
+The wiki aims to have consistent style. Please see Help:Manual of style for a style guide that helps to follow consistent style and formatting in the wiki.
+
+Note, however, that you don't need to know neither of the complex templates, or abovementioned guidelines in order to contribute. It is much harder to write the content itself, than to apply the formatting, so don't care about the style when writing, as someone will fix that later.
+
+Some high-traffic templates are locked in order to prevent vandalism or because of performance reasons. In these cases you should request a modification in the discussion page.
+
+I want to help. Where should I start?
+Great! There are several special pages that contain suggestions for things that need to be fixed:
+
+Pages that could use examples (a good starting point)
+Pages marked with specific todo items
+Pages marked with general todos
+Who is behind this site?
+cppreference.com was created and is maintained by a group of C++ enthusiasts from around the world. The site has been entirely community-supported since its inception in 2000; currently hosting costs are partially offset by ads (please report any ad issues to comments@cppreference.com), donations, and the sale of horribly-pun-filled C++-related merchandise.
+
+How can I contact you?
+You can contact us at comments@cppreference.com.
+
+In case you're reporting a broken link, it might be easier to report it here.
+Frequently asked questions
+  C++ 
+What is the purpose of this site?
+Our goal is to provide programmers with a complete online reference for the C and C++ languages and standard libraries, i.e. a more convenient version of the C and C++ standards.
+
+The primary objective is to have a good specification of C and C++. That is, things that are implicitly clear to an experienced programmer should be omitted, or at least separated from the main description of a function, constant or class. A good place to demonstrate various use cases is the "example" section of each page. Rationale, implementation notes, domain specific documentation are preferred to be included in the "notes" section of each page.
+
+Why is the material here limited to the standard C and C++?
+In short, we chose quality over quantity. Some boost libraries could also be candidates for inclusion though. While their tutorials are very good, the reference documentation is often very inflexible and inconvenient.
+
+Where can I find more information?
+Check out the following collections of links [1] [2] for alternative links and material that falls outside of the scope of this site.
+
+Which revision of the C Standard does this reference adhere to?
+C17 is the most recently published C Standard, so it is the main focus of the C reference.
+
+However, in order to provide a more complete reference, we also include documentation describing previous versions of the standard (C89, C95, C99, C11), drafts for future versions of the standard, and the Technical Specifications. All version-specific documentation should be labeled appropriately.
+
+The various C standard revisions can be found at:
+
+C2x
+The latest free working draft is n2310 (2018-11-06)
+C17
+The official C17 Standard can be purchased from ISO
+The final draft standard C17 FDIS is available for free
+C11
+The C11 standard was withdrawn and is no longer available from ISO, although it may still be purchased from ANSI.
+A C11 working draft n1570 (2011-04-12) is available for free and differs only minimally from the final C11 Standard.
+C99
+The C99 standard was withdrawn and is no longer available from ISO, although it may still be purchased from ANSI.
+The final C99:TC3 working draft n1256 (2007-09-07) is freely available and differs only minimally from the final C99 standard including all three Technical Corrigenda.
+C95
+The C90 amendment AMD1, which transforms C90 to C95 is no longer available from official sources, although it may be found with some document retailers, such as Global Engineering Documents
+C89/C90
+The C90 standard was withdrawn and is no longer available from official sources, although it may be found with some document retailers, such as SAI-Global
+The final draft (X3J11/90-013 (ANSI numbering) or n119 (WG14 numbering)) is not publicly available, but the final public review draft X3J11/88-090 (1988-05-13) is available and differs minimally from the final C89 standard.
+Which revision of the C++ Standard does this reference adhere to?
+C++17 is the most recently published C++ Standard, so that is the main focus of this site.
+
+However, in order to provide a more complete reference, we also include documentation describing previous versions of the standard (C++98, C++03, C++11, C++14) as well as draft documentation for future versions of the standard (C++20, and the Technical Specifications). All version-specific documentation should be labeled appropriately.
+
+The various C++ Standards themselves can be found at:
+
+C++20
+The latest free working draft is n4800 (2019-01-21)
+The most up-to-date version can be found, in source form, at https://github.com/cplusplus/draft and in browseable form at eel.is/c++draft.
+C++17
+The official C++17 standard can be purchased directly from ISO and is expected to also be made available by ANSI and other member organizations.
+The final draft of C++17 is n4659 (2017-03-21).
+C++14
+The C++14 standard was withdrawn and is no longer available from ISO. It can still be purchased through ANSI and other member organizations
+A free C++14 final draft (n4140) is available as well as the diff between it and the standard (n4141)
+C++11
+The C++11 standard was withdrawn and is no longer available from ISO.
+A free C++11 Working Draft (n3337) is available. (The differences between the Working Draft and the C++11 Standard are minor.)
+C++03
+The C++03 standard was withdrawn and is no longer available from ISO.
+C++98
+The C++98 standard was withdrawn and is no longer available from ISO.
+Why are there differences between the standard and cppreference?
+Cppreference is maintained by and aims to be useful to programmers, not ISO historians, and as programmers, we care what we get when we use -std=c++17, or whatever your compiler's equivalent flag is. As a result, our documentation is for a hypothetical complete and correct implementation of each C and C++ standard revision plus all subsequent bugfixes and clarifications applicable to that revision. When available, we use the standards committee guidance and the current implementations as evidence for what such a hypothetical implementation would do.
+
+Do you have a version of this site suitable for offline viewing?
+Sure, you can grab one here.
+
+Can you make the site easier to view?
+You might find a a dark theme more legible than the default bright theme.
+
+What can I do with the material on this site?
+The content is licensed under Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA) and by the GNU Free Documentation License (GFDL) (unversioned, with no invariant sections, front-cover texts, or back-cover texts). That means that you can use this site in almost any way you like, including mirroring, copying, translating, etc. All we would ask is to provide link back to cppreference.com so that people know where to get the most up-to-date content. In addition to that, any modified content should be released under an equivalent license so that everyone could benefit from the modified versions.
+
+What? This is a wiki? Can I change stuff?
+Absolutely. If you see something that is wrong, fix it. However, currently the wiki is limited to standard C and C++, so you should not add non-standard content like compiler-specific extensions. Also, please double check any changes with the appropriate standard. If you are unsure about anything, you can ask about it in the discussion pages.
+
+How can I edit? What are the syntax rules?
+This wiki uses Mediawiki, the same wiki system as the Wikipedia project. You can use their help pages to introduce you to the Mediawiki wikicode syntax. However, most of the content in this wiki is wrapped in quite complex templates. They do most of the formatting and help to aggregate the repetitive stuff in one place, so when something is to be modified, there is no need to make the same modification tens or hundreds of times. For help about the templates used in this wiki, see Help:Templates.
+
+The wiki aims to have consistent style. Please see Help:Manual of style for a style guide that helps to follow consistent style and formatting in the wiki.
+
+Note, however, that you don't need to know neither of the complex templates, or abovementioned guidelines in order to contribute. It is much harder to write the content itself, than to apply the formatting, so don't care about the style when writing, as someone will fix that later.
+
+Some high-traffic templates are locked in order to prevent vandalism or because of performance reasons. In these cases you should request a modification in the discussion page.
+
+I want to help. Where should I start?
+Great! There are several special pages that contain suggestions for things that need to be fixed:
+
+Pages that could use examples (a good starting point)
+Pages marked with specific todo items
+Pages marked with general todos
+Who is behind this site?
+cppreference.com was created and is maintained by a group of C++ enthusiasts from around the world. The site has been entirely community-supported since its inception in 2000; currently hosting costs are partially offset by ads (please report any ad issues to comments@cppreference.com), donations, and the sale of horribly-pun-filled C++-related merchandise.
+
+How can I contact you?
+You can contact us at comments@cppreference.com.
+
+In case you're reporting a broken link, it might be easier to report it here.
+Frequently asked questions
+  C++ 
+What is the purpose of this site?
+Our goal is to provide programmers with a complete online reference for the C and C++ languages and standard libraries, i.e. a more convenient version of the C and C++ standards.
+
+The primary objective is to have a good specification of C and C++. That is, things that are implicitly clear to an experienced programmer should be omitted, or at least separated from the main description of a function, constant or class. A good place to demonstrate various use cases is the "example" section of each page. Rationale, implementation notes, domain specific documentation are preferred to be included in the "notes" section of each page.
+
+Why is the material here limited to the standard C and C++?
+In short, we chose quality over quantity. Some boost libraries could also be candidates for inclusion though. While their tutorials are very good, the reference documentation is often very inflexible and inconvenient.
+
+Where can I find more information?
+Check out the following collections of links [1] [2] for alternative links and material that falls outside of the scope of this site.
+
+Which revision of the C Standard does this reference adhere to?
+C17 is the most recently published C Standard, so it is the main focus of the C reference.
+
+However, in order to provide a more complete reference, we also include documentation describing previous versions of the standard (C89, C95, C99, C11), drafts for future versions of the standard, and the Technical Specifications. All version-specific documentation should be labeled appropriately.
+
+The various C standard revisions can be found at:
+
+C2x
+The latest free working draft is n2310 (2018-11-06)
+C17
+The official C17 Standard can be purchased from ISO
+The final draft standard C17 FDIS is available for free
+C11
+The C11 standard was withdrawn and is no longer available from ISO, although it may still be purchased from ANSI.
+A C11 working draft n1570 (2011-04-12) is available for free and differs only minimally from the final C11 Standard.
+C99
+The C99 standard was withdrawn and is no longer available from ISO, although it may still be purchased from ANSI.
+The final C99:TC3 working draft n1256 (2007-09-07) is freely available and differs only minimally from the final C99 standard including all three Technical Corrigenda.
+C95
+The C90 amendment AMD1, which transforms C90 to C95 is no longer available from official sources, although it may be found with some document retailers, such as Global Engineering Documents
+C89/C90
+The C90 standard was withdrawn and is no longer available from official sources, although it may be found with some document retailers, such as SAI-Global
+The final draft (X3J11/90-013 (ANSI numbering) or n119 (WG14 numbering)) is not publicly available, but the final public review draft X3J11/88-090 (1988-05-13) is available and differs minimally from the final C89 standard.
+Which revision of the C++ Standard does this reference adhere to?
+C++17 is the most recently published C++ Standard, so that is the main focus of this site.
+
+However, in order to provide a more complete reference, we also include documentation describing previous versions of the standard (C++98, C++03, C++11, C++14) as well as draft documentation for future versions of the standard (C++20, and the Technical Specifications). All version-specific documentation should be labeled appropriately.
+
+The various C++ Standards themselves can be found at:
+
+C++20
+The latest free working draft is n4800 (2019-01-21)
+The most up-to-date version can be found, in source form, at https://github.com/cplusplus/draft and in browseable form at eel.is/c++draft.
+C++17
+The official C++17 standard can be purchased directly from ISO and is expected to also be made available by ANSI and other member organizations.
+The final draft of C++17 is n4659 (2017-03-21).
+C++14
+The C++14 standard was withdrawn and is no longer available from ISO. It can still be purchased through ANSI and other member organizations
+A free C++14 final draft (n4140) is available as well as the diff between it and the standard (n4141)
+C++11
+The C++11 standard was withdrawn and is no longer available from ISO.
+A free C++11 Working Draft (n3337) is available. (The differences between the Working Draft and the C++11 Standard are minor.)
+C++03
+The C++03 standard was withdrawn and is no longer available from ISO.
+C++98
+The C++98 standard was withdrawn and is no longer available from ISO.
+Why are there differences between the standard and cppreference?
+Cppreference is maintained by and aims to be useful to programmers, not ISO historians, and as programmers, we care what we get when we use -std=c++17, or whatever your compiler's equivalent flag is. As a result, our documentation is for a hypothetical complete and correct implementation of each C and C++ standard revision plus all subsequent bugfixes and clarifications applicable to that revision. When available, we use the standards committee guidance and the current implementations as evidence for what such a hypothetical implementation would do.
+
+Do you have a version of this site suitable for offline viewing?
+Sure, you can grab one here.
+
+Can you make the site easier to view?
+You might find a a dark theme more legible than the default bright theme.
+
+What can I do with the material on this site?
+The content is licensed under Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA) and by the GNU Free Documentation License (GFDL) (unversioned, with no invariant sections, front-cover texts, or back-cover texts). That means that you can use this site in almost any way you like, including mirroring, copying, translating, etc. All we would ask is to provide link back to cppreference.com so that people know where to get the most up-to-date content. In addition to that, any modified content should be released under an equivalent license so that everyone could benefit from the modified versions.
+
+What? This is a wiki? Can I change stuff?
+Absolutely. If you see something that is wrong, fix it. However, currently the wiki is limited to standard C and C++, so you should not add non-standard content like compiler-specific extensions. Also, please double check any changes with the appropriate standard. If you are unsure about anything, you can ask about it in the discussion pages.
+
+How can I edit? What are the syntax rules?
+This wiki uses Mediawiki, the same wiki system as the Wikipedia project. You can use their help pages to introduce you to the Mediawiki wikicode syntax. However, most of the content in this wiki is wrapped in quite complex templates. They do most of the formatting and help to aggregate the repetitive stuff in one place, so when something is to be modified, there is no need to make the same modification tens or hundreds of times. For help about the templates used in this wiki, see Help:Templates.
+
+The wiki aims to have consistent style. Please see Help:Manual of style for a style guide that helps to follow consistent style and formatting in the wiki.
+
+Note, however, that you don't need to know neither of the complex templates, or abovementioned guidelines in order to contribute. It is much harder to write the content itself, than to apply the formatting, so don't care about the style when writing, as someone will fix that later.
+
+Some high-traffic templates are locked in order to prevent vandalism or because of performance reasons. In these cases you should request a modification in the discussion page.
+
+I want to help. Where should I start?
+Great! There are several special pages that contain suggestions for things that need to be fixed:
+
+Pages that could use examples (a good starting point)
+Pages marked with specific todo items
+Pages marked with general todos
+Who is behind this site?
+cppreference.com was created and is maintained by a group of C++ enthusiasts from around the world. The site has been entirely community-supported since its inception in 2000; currently hosting costs are partially offset by ads (please report any ad issues to comments@cppreference.com), donations, and the sale of horribly-pun-filled C++-related merchandise.
+
+How can I contact you?
+You can contact us at comments@cppreference.com.
+
+In case you're reporting a broken link, it might be easier to report it here.
