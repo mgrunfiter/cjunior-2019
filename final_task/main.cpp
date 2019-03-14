@@ -1,8 +1,9 @@
 #include "mainwindow.h"
-#include <QApplication>
-#include <QFile>
-#include <QDate>
-#include <QTextCodec>
+//#include <QtWidgets>
+//#include <QApplication>
+//#include <QFile>
+//#include <QDate>
+//#include <QTextCodec>
 
 // Данные для ведения логов
 static QTextStream* logStream;
@@ -14,13 +15,14 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-//    // Под Windows устанавливаем кодировку cp1251
-//    #ifdef Q_WS_WIN
-//    QTextCodec::setCodecForTr(QTextCodec::codecForName("Windows-1251"));
-//    // Под остальными ОС - utf8
-//    #else
+    // Под Windows устанавливаем кодировку cp1251
+    #ifdef Q_WS_WIN
+    QTextCodec::setCodecForTr(QTextCodec::codecForName("Windows-1251"));
+    // Под остальными ОС - utf8
+    #else
+     QTextCodec::setCodecForLocale(QTextCodec::codecForName("utf-8"));
 //    QTextCodec::setCodecForTr(QTextCodec::codecForName("utf-8"));
-//    #endif
+    #endif
 
     logFile = new QFile("final_task.log");
     // Открываем файл логирования
@@ -40,6 +42,7 @@ void messageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
 {
     // Открываем поток записи в файл
     QTextStream out(logFile);
+    QTextStream outcons(stdout);
     // Записываем дату записи
     out << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss.zzz ");
     // По типу определяем, к какому уровню относится сообщение
@@ -52,7 +55,7 @@ void messageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
         case QtFatalMsg:    out << "FTL "; break;
     }
     // Записываем в вывод категорию сообщения и само сообщение
-    out << context.category << ": "
-        << msg << endl;
+    out << context.category << ": " << msg << endl;
+    outcons << context.category << ": " << msg << endl;
     out.flush();    // Очищаем буферизированные данные
 }

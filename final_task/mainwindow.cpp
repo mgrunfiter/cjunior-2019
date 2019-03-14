@@ -56,10 +56,64 @@ MainWindow::MainWindow(QWidget *parent) :
         }
     }
 
+    //Установим область, которая будет показываться на графике
     ui->widget->xAxis->setRange(MIN_X, MAX_X);//Для оси Ox
     ui->widget->yAxis->setRange(MIN_Y, MAX_Y);//Для оси Oy
+
     // TODO:
     // Процедура чтения из БД и перерисовки
+//    SELECT a.ID, b.NORTHING_METER as x1, b.EASTING_METER as y1
+//    FROM GEO_LINE a, GEO_POINT b
+//    WHERE a.ID_GEO_POINT_START = b.ID order by a.ID
+
+    GeoLine OneLine;
+
+//    query.prepare("SELECT a.ID, b.NORTHING_METER as x1, b.EASTING_METER as y1 FROM GEO_LINE a, GEO_POINT b WHERE a.ID_GEO_POINT_START = b.ID order by a.ID");
+    query.prepare("SELECT a.ID, b.NORTHING_METER as x1, b.EASTING_METER as y1\
+                  FROM GEO_LINE a, GEO_POINT b\
+                  WHERE a.ID_GEO_POINT_START = b.ID\
+                  union\
+                  SELECT a.ID, b.NORTHING_METER as x2, b.EASTING_METER as y2\
+                  FROM GEO_LINE a, GEO_POINT b\
+                  WHERE a.ID_GEO_POINT_END = b.ID");
+    query.exec();
+    OneLine.id = -1;
+    while (query.next())
+    {
+        int id = 0;
+        id = query.value(0).toInt();
+        if (id != OneLine.id)
+        {
+            OneLine.id = id;
+            OneLine.x1 = query.value(1).toDouble();
+            OneLine.y1 =query.value(2).toDouble();
+        }
+        else
+        {
+            OneLine.x2 = query.value(1).toDouble();
+            OneLine.y2 =query.value(2).toDouble();
+            GeoLines.push_back(OneLine);
+            OneLine.id = -1;
+        }
+    }
+
+    QVector<double> x(2), y(2); //Массивы координат точек
+
+    ui->widget->clearGraphs();//Если нужно, то очищаем все графики
+    int count = 0;
+    for (auto OneLine: GeoLines)
+    {
+        qDebug() << "id = " << OneLine.id << " x1 = " << OneLine.x1 << "y1 = " << OneLine.y1 << " x2 = " << OneLine.x2 << "y2 = " << OneLine.y2;
+        x[0] = OneLine.x1;
+        y[0] = OneLine.y1;
+        x[1] = OneLine.x2;
+        y[1] = OneLine.y2;
+        //Добавляем один график в widget
+        ui->widget->addGraph();
+        //Говорим, что отрисовать нужно график по нашим двум массивам x и y
+        ui->widget->graph(count)->setData(x, y);
+        count++;
+    }
 
 }
 
