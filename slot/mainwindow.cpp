@@ -36,6 +36,19 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
     return QObject::eventFilter(obj, event);
 }
 
+void MainWindow::wheelEvent(QWheelEvent *event)
+{
+    qDebug() << "Wheel event " << event->pos();
+}
+
+void MainWindow::mousePressEvent(QMouseEvent *event)
+{
+    QPoint pos = event->pos();
+
+    qDebug() << "x =" << pos.x() << "y =" << pos.y();
+
+}
+
 void MainWindow::getMessage(const Message &msg)
 {
     this_message = msg;

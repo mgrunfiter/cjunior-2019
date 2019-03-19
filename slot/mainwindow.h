@@ -23,6 +23,8 @@ public:
 
 protected:
     bool eventFilter(QObject *obj, QEvent *event);
+    void wheelEvent(QWheelEvent *event);
+    void mousePressEvent(QMouseEvent *event);
 
 signals:
     void sendMessage(const Message &msg);
